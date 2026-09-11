@@ -53,7 +53,7 @@ export const properties = [
   {
     domain: "marketing.navisavitravel.com",
     href: "https://marketing.navisavitravel.com/",
-    shot: "/images/work/eco-home.jpg",
+    shot: "/images/work/eco-overview.jpg",
     audience: "Ecosystem",
     title: "Authentic travel video for modern travel companies.",
     detail:
