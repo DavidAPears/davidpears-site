@@ -86,7 +86,8 @@ export default function About() {
                 <p className="m-0">
                   Senior front-end and mobile leadership: CTO and fractional CTO work,
                   technical advisory, and hands-on React Native and React engineering. I
-                  am based in Stockholm and work remotely across Europe and the UK.
+                  am based in Stockholm, where I can work onsite, hybrid or remotely, and
+                  I work remotely across Europe and the UK.
                 </p>
 
                 <p className="m-0 pt-2">
