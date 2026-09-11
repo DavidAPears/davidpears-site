@@ -2,11 +2,15 @@ import FootageStrip from "@/components/FootageStrip";
 import { BandHead, SlotNote } from "@/components/ui";
 import { getPlaylist } from "@/lib/navisavi";
 
-/** A curated playlist from the catalogue. */
-const PLAYLIST_ID = 71;
+/**
+ * Several playlists rather than one, so the strip spans the world instead of
+ * showing eight Greek hotels.
+ */
+const PLAYLISTS = [976, 777, 747, 895];
 
 export default async function Craft() {
-  const clips = await getPlaylist(PLAYLIST_ID, 8);
+  const sets = await Promise.all(PLAYLISTS.map((id) => getPlaylist(id, 2)));
+  const clips = sets.flat();
 
   return (
     <section id="craft" className="band gutter">

@@ -126,7 +126,7 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
     const graticule = () => {
       ctx.strokeStyle = GRATICULE;
       ctx.lineWidth = 1;
-      ctx.globalAlpha = 0.55;
+      ctx.globalAlpha = 0.8;
       const step = 68;
 
       for (let x = step; x < w; x += step) {
@@ -227,16 +227,16 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
 
         ctx.beginPath();
         ctx.arc(l.x, l.y, Math.max(l.r, 0.1), 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${col},${(l.a * (hot ? 0.26 : 0.13)).toFixed(3)})`;
+        ctx.fillStyle = `rgba(${col},${(l.a * (hot ? 0.34 : 0.2)).toFixed(3)})`;
         ctx.fill();
-        ctx.strokeStyle = `rgba(${col},${(l.a * (hot ? 0.95 : 0.5)).toFixed(3)})`;
+        ctx.strokeStyle = `rgba(${col},${(l.a * (hot ? 1 : 0.78)).toFixed(3)})`;
         ctx.lineWidth = hot ? 1.6 : 1;
         ctx.stroke();
 
         if (solo) {
           ctx.beginPath();
-          ctx.arc(l.x, l.y, 2.1, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(${AQUA},${(l.a * 0.9).toFixed(3)})`;
+          ctx.arc(l.x, l.y, 2.6, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${AQUA},${l.a.toFixed(3)})`;
           ctx.fill();
         } else if (l.r > 12) {
           ctx.font = `500 ${Math.min(13, 8 + l.r * 0.16).toFixed(1)}px ${monoFamily}`;
