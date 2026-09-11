@@ -33,9 +33,10 @@ The hero canvas buckets ~145 deterministic points into grid cells and draws one 
 Anything unfinished renders as a visible amber **Slot** rather than a silent placeholder:
 
 - [ ] **CV PDF** — drop it at `public/cv/david-pears-cv.pdf`. The old site linked to read.cv, which shut down on 16 May 2025, so that link is dead.
-- [ ] **Screen grabs** — the browser and handset frames in `components/DeviceRig.tsx` are abstractions. Replace with real exports (Rotato / Device Frames).
+- [x] **Screen grabs** — real captures of the three live sites, in `public/images/work/`. Regenerate with `node tools/screenshots.mjs` (drives the installed Chrome via puppeteer-core; declines cookie banners and hides promo overlays so captures show the product, not the campaign).
+- [ ] **App screens** — the handset currently shows the consumer site at phone width, not the React Native app. Real device or simulator screenshots would be better.
 - [ ] **Craft clips** — three tiles waiting on short loops.
-- [ ] **Roster** — Indeez, Fanbased, SolidSport and SearchParties need years, a line of detail, and their stacks.
+- [ ] **Fanbased** — the one roster row still pending; it has a repo but is not on the CV.
 - [ ] **Email address** — `links` in `content/site.ts` has a placeholder; decide which address this site uses.
 - [ ] **Deploy** — domain is `davidpears.com` (bought 11 Sep 2026) and is already wired into `metadataBase`, `robots.ts`, `sitemap.ts` and the OG card. Still needs a host and DNS. `davidpearsconsulting.com` is the old Webador site and should stay up until this one is live.
 

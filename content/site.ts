@@ -35,6 +35,7 @@ export const properties = [
   {
     domain: "navi-savi.com",
     href: "https://navi-savi.com/",
+    shot: "/images/work/b2c-home.jpg",
     audience: "Consumer",
     title: "Real travel. Not travel reels.",
     detail:
@@ -43,6 +44,7 @@ export const properties = [
   {
     domain: "navisavitravel.com",
     href: "https://navisavitravel.com/",
+    shot: "/images/work/b2b-home.jpg",
     audience: "Business",
     title: "The world's leading travel video library.",
     detail:
@@ -51,6 +53,7 @@ export const properties = [
   {
     domain: "marketing.navisavitravel.com",
     href: "https://marketing.navisavitravel.com/",
+    shot: "/images/work/eco-home.jpg",
     audience: "Ecosystem",
     title: "Authentic travel video for modern travel companies.",
     detail:
@@ -174,7 +177,7 @@ export const roster: RosterEntry[] = [
     name: "Indeez",
     role: "Senior React Native Engineer, consultant · Remote",
     detail:
-      "New iOS and Android social and music-discovery app from the ground up — component architecture, customisable profile theming, and a swipe-based audio discovery experience.",
+      "A social music app — MySpace reinvented for mobile, where fans, artists, venues and record stores all share the same space. Built around a player whose discovery feed works like a swipe deck: keep a track or skip it, and the algorithm learns what grassroots music you actually want.",
     tags: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "AWS"],
   },
   {

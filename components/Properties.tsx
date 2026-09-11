@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { properties } from "@/content/site";
 
 /**
@@ -13,20 +15,33 @@ export default function Properties() {
           href={item.href}
           target="_blank"
           rel="noreferrer"
-          className="group flex flex-col gap-3 bg-ground p-[clamp(1.25rem,2.2vw,1.75rem)] no-underline transition-colors hover:bg-ground-2"
+          className="group flex flex-col bg-ground no-underline transition-colors hover:bg-ground-2"
         >
-          <span className="flex items-baseline justify-between gap-3">
-            <span className="mono !text-signal-soft">{item.audience}</span>
-            <span className="font-mono text-[0.688rem] text-muted-dim transition-colors group-hover:text-aqua">
-              ↗
-            </span>
+          <span className="block overflow-hidden border-b border-graticule">
+            <Image
+              src={item.shot}
+              alt={`The ${item.domain} home page.`}
+              width={1800}
+              height={1125}
+              sizes="(min-width: 768px) 33vw, 100vw"
+              className="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
+            />
           </span>
 
-          <span className="display-sm text-paper">{item.title}</span>
-          <span className="text-sm text-muted">{item.detail}</span>
+          <span className="flex flex-1 flex-col gap-3 p-[clamp(1.25rem,2.2vw,1.75rem)]">
+            <span className="flex items-baseline justify-between gap-3">
+              <span className="mono !text-signal-soft">{item.audience}</span>
+              <span className="font-mono text-[0.688rem] text-muted-dim transition-colors group-hover:text-aqua">
+                ↗
+              </span>
+            </span>
 
-          <span className="mt-auto pt-2 font-mono text-[0.688rem] tracking-[0.04em] text-aqua">
-            {item.domain}
+            <span className="display-sm text-paper">{item.title}</span>
+            <span className="text-sm text-muted">{item.detail}</span>
+
+            <span className="mt-auto pt-2 font-mono text-[0.688rem] tracking-[0.04em] text-aqua">
+              {item.domain}
+            </span>
           </span>
         </a>
       ))}
