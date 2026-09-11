@@ -37,7 +37,7 @@ Anything unfinished renders as a visible amber **Slot** rather than a silent pla
 - [ ] **Craft clips** — three tiles waiting on short loops.
 - [ ] **Roster** — Indeez, Fanbased, SolidSport and SearchParties need years, a line of detail, and their stacks.
 - [ ] **Email address** — `links` in `content/site.ts` has a placeholder; decide which address this site uses.
-- [ ] **Domain** — undecided. `davidpearsconsulting.com` is the old Webador site and should stay up until this one is live.
+- [ ] **Deploy** — domain is `davidpears.com` (bought 11 Sep 2026) and is already wired into `metadataBase`, `robots.ts`, `sitemap.ts` and the OG card. Still needs a host and DNS. `davidpearsconsulting.com` is the old Webador site and should stay up until this one is live.
 
 ## Testimonials
 

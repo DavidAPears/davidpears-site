@@ -21,10 +21,27 @@ const chivoMono = Chivo_Mono({
   weight: ["400", "500"],
 });
 
+const DESCRIPTION =
+  "CTO at NaviSavi. Technology lead who still writes the front end — web storefront, iOS and Android.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://davidpears.com"),
   title: "David Pears",
-  description:
-    "CTO at NaviSavi. Technology lead who still writes the front end — web storefront, iOS and Android.",
+  description: DESCRIPTION,
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "David Pears",
+    description: DESCRIPTION,
+    url: "/",
+    siteName: "David Pears",
+    locale: "en_GB",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "David Pears",
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
