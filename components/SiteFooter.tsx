@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { links, profile } from "@/content/site";
 
 export default function SiteFooter() {
@@ -7,7 +9,10 @@ export default function SiteFooter() {
       className="gutter flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-8 pb-12"
     >
       <span className="mono">
-        {profile.name} · {profile.location}
+        {profile.name} · {profile.location} ·{" "}
+        <Link href="/about" className="no-underline transition-colors hover:text-paper">
+          About
+        </Link>
       </span>
 
       <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
