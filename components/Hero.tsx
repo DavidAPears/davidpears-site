@@ -24,9 +24,9 @@ export default function Hero() {
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
           I&rsquo;m David Pears, a hands-on engineering leader. I co-founded{" "}
           <strong className="font-semibold text-paper">NaviSavi</strong> in 2020 and have
-          led its front end ever since: four products on one catalogue of 250k+ videos,
-          on web and in React Native, used by TUI, Saudia and Jet2. I set the
-          architecture, lead the team, and still write the code.
+          led its technical development: four products on one library of 250k+ UGC
+          videos, on web and in React Native. I set the architecture, lead the team, and
+          still write the frontend code.
         </p>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] font-semibold text-paper">
