@@ -12,7 +12,7 @@
  */
 
 import { execFileSync } from "node:child_process";
-import { mkdirSync, rmSync } from "node:fs";
+import { mkdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -20,18 +20,32 @@ import puppeteer from "puppeteer-core";
 
 const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const OUT = path.join(ROOT, "public/images/work");
-const RAW = path.join(ROOT, ".screenshots-raw");
+const OUT = path.join(ROOT, ".screenshots-raw");
 
 const TARGETS = [
-  { name: "b2b-home", url: "https://navisavitravel.com/", w: 1440, h: 900 },
+  { name: "b2b-library", url: "https://navisavitravel.com/", w: 1440, h: 900 },
+  {
+    name: "b2b-ai-search",
+    url: "https://navisavitravel.com/search",
+    w: 1440,
+    h: 900,
+    // Show the LLM-backed mode rather than the plain filter one.
+    click: "AI Search",
+  },
+  { name: "b2c-home", url: "https://navi-savi.com/", w: 1440, h: 900 },
+  {
+    name: "b2c-detail",
+    url: "https://navi-savi.com/videos/249312-shoab-beach-bdca5e9d-3132-424c-adbe-592bd0b5ed25",
+    w: 1440,
+    h: 900,
+  },
+  { name: "eco-overview", url: "https://marketing.navisavitravel.com/", w: 1440, h: 900 },
 ];
 
-// Not captured here, because they are hand-trimmed:
-//   app-home.png     a real React Native screenshot, background knocked out
-//   b2b-ai-search.jpg  the AI Search tab, whitespace edited down
-//   b2c-detail.jpg   a video place page, whitespace edited down
-//   eco-overview.jpg   the ecosystem site, whitespace edited down
+// Everything in public/images/work/ is hand-trimmed, so this script writes to
+// .screenshots-raw/ instead. Re-run it when a site changes, trim the shot you
+// want, then move it into public/images/work/ UNDER A NEW FILENAME — replacing
+// a file in place leaves next/image serving the previously optimised bytes.
 
 async function clearOverlays(page) {
   await page.evaluate(() => {
@@ -91,7 +105,6 @@ async function clearOverlays(page) {
   await new Promise((r) => setTimeout(r, 400));
 }
 
-mkdirSync(RAW, { recursive: true });
 mkdirSync(OUT, { recursive: true });
 
 const browser = await puppeteer.launch({
@@ -140,20 +153,18 @@ for (const t of TARGETS) {
       await new Promise((r) => setTimeout(r, 700));
     });
 
-    const raw = path.join(RAW, `${t.name}.png`);
+    const raw = path.join(OUT, `${t.name}.png`);
     await page.screenshot({ path: raw });
 
-    const maxEdge = t.mobile ? "900" : "1800";
-    const quality = t.mobile ? "78" : "72";
     execFileSync("sips", [
-      "-Z", maxEdge,
+      "-Z", "1900",
       "-s", "format", "jpeg",
-      "-s", "formatOptions", quality,
+      "-s", "formatOptions", "82",
       raw,
       "--out", path.join(OUT, `${t.name}.jpg`),
     ]);
 
-    console.log(`${t.name} -> public/images/work/${t.name}.jpg`);
+    console.log(`${t.name} -> .screenshots-raw/${t.name}.jpg`);
   } catch (e) {
     console.log(`${t.name} FAILED: ${e.message}`);
   } finally {
@@ -162,4 +173,3 @@ for (const t of TARGETS) {
 }
 
 await browser.close();
-rmSync(RAW, { recursive: true, force: true });

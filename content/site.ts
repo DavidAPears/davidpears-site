@@ -44,7 +44,7 @@ export const properties = [
   {
     domain: "navisavitravel.com",
     href: "https://navisavitravel.com/",
-    shot: "/images/work/b2b-home.jpg",
+    shot: "/images/work/b2b-library.jpg",
     audience: "Business",
     title: "The world's leading travel video library.",
     detail:
