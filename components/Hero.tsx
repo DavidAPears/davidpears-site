@@ -47,8 +47,8 @@ export default async function Hero() {
           </a>
         </div>
 
-        <p className="mt-14 mb-0 flex max-w-[40rem] flex-wrap items-baseline gap-x-[0.6rem] gap-y-1">
-          <span className="mono !text-muted-dim">Above:</span>
+        <p className="mt-14 mb-0 max-w-[40rem] leading-relaxed">
+          <span className="mono !text-muted-dim">Above: </span>
           <span className="font-mono text-[0.688rem] tracking-[0.08em] text-aqua">
             {points.length > 0
               ? `${points.length} real locations from the NaviSavi API, clustered live`

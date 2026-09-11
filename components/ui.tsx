@@ -2,9 +2,9 @@ import type { ReactNode } from "react";
 
 export function BandHead({ title, meta }: { title: string; meta: string }) {
   return (
-    <div className="rule-b mb-[clamp(2rem,4vw,3.25rem)] flex items-baseline justify-between gap-8 pb-6">
+    <div className="rule-b mb-[clamp(2rem,4vw,3.25rem)] flex flex-col gap-2 pb-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
       <h2 className="display-lg m-0">{title}</h2>
-      <span className="mono shrink-0 text-right">{meta}</span>
+      <span className="mono sm:shrink-0 sm:text-right">{meta}</span>
     </div>
   );
 }

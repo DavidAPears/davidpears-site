@@ -156,7 +156,7 @@ export default function ClusterField({
       ctx.strokeStyle = GRATICULE;
       ctx.lineWidth = 1;
       ctx.globalAlpha = 0.5;
-      const step = 68;
+      const step = Math.max(34, 68 * Math.min(1, w / 1440));
 
       for (let x = step; x < w; x += step) {
         ctx.beginPath();
@@ -187,10 +187,15 @@ export default function ClusterField({
       graticule();
 
       const zoom = reduce ? 3.4 : 3.4 + Math.sin(t * 0.0000524) * 1.2;
-      const cell = Math.max(46, 250 / zoom);
 
-      const px = (pointer.x - 0.5) * 26;
-      const py = (pointer.y - 0.5) * 18;
+      // Cell size follows the canvas, so a phone shows a similar number of
+      // clusters to a desktop rather than half a dozen huge ones.
+      const scale = Math.min(1, w / 1440);
+      const cell = Math.max(16, scale * (250 / zoom));
+      const radiusScale = Math.max(0.52, scale);
+
+      const px = (pointer.x - 0.5) * 26 * scale;
+      const py = (pointer.y - 0.5) * 18 * scale;
 
       const cells = new Map<string, { sx: number; sy: number; n: number }>();
 
@@ -209,7 +214,7 @@ export default function ClusterField({
       // Reconcile against the animated set so appearing and merging eases
       // instead of popping.
       cells.forEach((c, key) => {
-        const target = 7 + Math.sqrt(c.n) * 7.2;
+        const target = (7 + Math.sqrt(c.n) * 7.2) * radiusScale;
         let l = live.get(key);
 
         if (!l) {
