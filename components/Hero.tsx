@@ -1,11 +1,14 @@
 import ClusterField from "@/components/ClusterField";
 import { ArrowIcon, DownloadIcon } from "@/components/ui";
 import { profile } from "@/content/site";
+import { getHeroPoints } from "@/lib/navisavi";
 
-export default function Hero() {
+export default async function Hero() {
+  const points = await getHeroPoints();
+
   return (
     <section id="top" className="rule-b relative overflow-hidden">
-      <ClusterField />
+      <ClusterField points={points} />
 
       {/* Sized to what it holds, not to the viewport, so the next section stays
           visible in the first frame. */}
@@ -47,7 +50,9 @@ export default function Hero() {
         <p className="mt-14 mb-0 flex max-w-[40rem] flex-wrap items-baseline gap-x-[0.6rem] gap-y-1">
           <span className="mono !text-muted-dim">Above:</span>
           <span className="font-mono text-[0.688rem] tracking-[0.08em] text-aqua">
-            live cluster field · the grouping model behind NaviSavi map search
+            {points.length > 0
+              ? `${points.length} real locations from the NaviSavi API, clustered live`
+              : "live cluster field · the grouping model behind NaviSavi map search"}
           </span>
         </p>
       </div>

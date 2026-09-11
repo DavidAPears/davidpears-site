@@ -1,41 +1,38 @@
+import FootageStrip from "@/components/FootageStrip";
 import { BandHead, SlotNote } from "@/components/ui";
+import { getPlaylist } from "@/lib/navisavi";
 
-const CRAFT = [
-  { label: "map clustering", wash: "linear-gradient(135deg, #1B3A4B, #2AEFE0)" },
-  { label: "search", wash: "linear-gradient(135deg, #4A1E3C, #FF0080)" },
-  { label: "checkout", wash: "linear-gradient(135deg, #22304A, #624FF7)" },
-];
+/** A curated playlist from the catalogue. */
+const PLAYLIST_ID = 71;
 
-export default function Craft() {
+export default async function Craft() {
+  const clips = await getPlaylist(PLAYLIST_ID, 8);
+
   return (
     <section id="craft" className="band gutter">
-      <BandHead title="Craft" meta="Details, pulled out of the product" />
+      <BandHead title="Live from the catalogue" meta="NaviSavi commercial API" />
 
-      <div className="grid grid-cols-1 items-start gap-[clamp(2.5rem,5vw,5rem)] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)]">
+      <div className="grid grid-cols-1 items-start gap-[clamp(2rem,4vw,3.5rem)] lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
         <div>
-          <p className="m-0 max-w-[52ch] text-body">
-            Single interactions rather than full case studies: how clusters resolve as
-            you zoom the map, how search behaves as you type, what checkout does when a
-            payment fails, how the video scrubber feels under a thumb. The parts of the
-            job that do not survive a screenshot.
+          <p className="m-0 max-w-[46ch] text-body">
+            These clips are not screenshots. They are pulled at build time from the
+            NaviSavi commercial API, the one I oversaw the creation of, and streamed from
+            the same infrastructure that serves the product.
           </p>
-          <SlotNote>
-            Each entry is one short looping clip plus a sentence on what was hard about
-            it.
-          </SlotNote>
+          <p className="m-0 mt-4 max-w-[46ch] text-sm text-muted">
+            Nothing streams until you press play, playback is capped, and the player
+            library only loads on the first click. Bandwidth costs money, and a portfolio
+            is no reason to spend it.
+          </p>
+          {clips.length === 0 ? (
+            <SlotNote>
+              The API returned nothing, so this section is empty rather than faked. Check
+              that NAVISAVI_API_KEY is set.
+            </SlotNote>
+          ) : null}
         </div>
 
-        <div className="grid grid-cols-3 gap-[0.55rem]">
-          {CRAFT.map((item) => (
-            <div
-              key={item.label}
-              className="tile"
-              style={{ "--tile-wash": item.wash } as React.CSSProperties}
-            >
-              <span>{item.label}</span>
-            </div>
-          ))}
-        </div>
+        <FootageStrip clips={clips} />
       </div>
     </section>
   );

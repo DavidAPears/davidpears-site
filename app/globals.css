@@ -231,10 +231,11 @@ body {
 .hero-veil {
   background:
     radial-gradient(
-      120% 90% at 8% 30%,
-      rgba(10, 15, 22, 0.94) 0%,
-      rgba(10, 15, 22, 0.72) 38%,
-      rgba(10, 15, 22, 0.1) 72%
+      115% 95% at 6% 32%,
+      rgba(10, 15, 22, 0.985) 0%,
+      rgba(10, 15, 22, 0.95) 34%,
+      rgba(10, 15, 22, 0.6) 56%,
+      rgba(10, 15, 22, 0.08) 82%
     ),
     linear-gradient(
       to bottom,

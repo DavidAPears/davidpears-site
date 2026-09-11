@@ -45,10 +45,25 @@ function seeded(seed: number) {
   };
 }
 
-function buildPoints() {
-  // Deterministic, so the composition is the same on every load.
+type FieldPoint = { x: number; y: number; drift: number; phase: number };
+
+/**
+ * Real coordinates from the catalogue when they are available, and a composed
+ * scatter when they are not, so the hero still draws if the API is unreachable.
+ */
+function buildPoints(real?: { x: number; y: number }[]): FieldPoint[] {
   const rnd = seeded(20260904);
-  const points: { x: number; y: number; drift: number; phase: number }[] = [];
+
+  if (real && real.length > 0) {
+    return real.map((p) => ({
+      x: p.x,
+      y: p.y,
+      drift: 0.4 + rnd() * 0.9,
+      phase: rnd() * Math.PI * 2,
+    }));
+  }
+
+  const points: FieldPoint[] = [];
 
   for (const reg of REGIONS) {
     for (let j = 0; j < reg.n; j++) {
@@ -66,7 +81,7 @@ function buildPoints() {
   return points;
 }
 
-export default function ClusterField() {
+export default function ClusterField({ points: real }: { points?: { x: number; y: number }[] }) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointsOut = useRef<HTMLSpanElement>(null);
@@ -90,7 +105,7 @@ export default function ClusterField() {
         .getPropertyValue("--font-mono")
         .trim() || "monospace";
 
-    const points = buildPoints();
+    const points = buildPoints(real);
     const live = new Map<string, Cluster>();
     const pointer = { x: 0.5, y: 0.5, on: false };
 
@@ -239,7 +254,7 @@ export default function ClusterField() {
         ctx.textBaseline = "alphabetic";
         ctx.fillStyle = `rgba(${PAPER},0.85)`;
         ctx.fillText(
-          `${near.n} ${near.n === 1 ? "clip" : "clips"}`,
+          `${near.n} ${near.n === 1 ? "place" : "places"}`,
           near.x + near.r + 8,
           near.y + 3,
         );
@@ -300,7 +315,7 @@ export default function ClusterField() {
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("visibilitychange", onVisibility);
     };
-  }, []);
+  }, [real]);
 
   return (
     <div ref={wrapRef} className="pointer-events-none absolute inset-0" aria-hidden="true">
@@ -309,7 +324,7 @@ export default function ClusterField() {
 
       <div className="absolute right-[var(--gutter)] bottom-5 hidden gap-7 text-right md:flex">
         <div className="flex flex-col gap-0.5">
-          <span className="mono">clips</span>
+          <span className="mono">places</span>
           <span ref={pointsOut} className="font-mono text-sm tabular-nums text-paper">
             ··
           </span>
