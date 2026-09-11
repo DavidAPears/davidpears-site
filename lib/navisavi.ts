@@ -109,7 +109,11 @@ type ApiVideo = {
  * `/v1/videos` is forbidden to this key, but playlists return whole video
  * objects, which is where these come from.
  */
-export async function getPlaylist(playlistId: number, take = 8): Promise<Clip[]> {
+export async function getPlaylist(
+  playlistId: number,
+  take = 8,
+  from: "start" | "end" = "start",
+): Promise<Clip[]> {
   const key = process.env.NAVISAVI_API_KEY;
   if (!key) return [];
 
@@ -122,9 +126,9 @@ export async function getPlaylist(playlistId: number, take = 8): Promise<Clip[]>
 
     const json = (await res.json()) as { videos?: ApiVideo[] };
 
-    return (json.videos ?? [])
-      .filter((v) => v.playbackId)
-      .slice(0, take)
+    const usable = (json.videos ?? []).filter((v) => v.playbackId);
+
+    return (from === "end" ? usable.slice(-take) : usable.slice(0, take))
       .map((v) => ({
         id: String(v.id),
         title: v.title ?? "Untitled",

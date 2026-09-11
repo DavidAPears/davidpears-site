@@ -183,7 +183,7 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
       land();
       graticule();
 
-      const zoom = reduce ? 3.4 : 3.4 + Math.sin(t * 0.00004) * 1.2;
+      const zoom = reduce ? 3.4 : 3.4 + Math.sin(t * 0.0000524) * 1.2;
       const cell = Math.max(46, 250 / zoom);
 
       const px = (pointer.x - 0.5) * 26;
