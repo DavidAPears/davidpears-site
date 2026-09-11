@@ -23,8 +23,8 @@ export default function DeviceRig() {
         <Image
           src="/images/work/b2b-search.jpg"
           alt="The NaviSavi licensing library's search page, showing the filter and AI search modes and the travel brands using it."
-          width={1800}
-          height={1013}
+          width={1900}
+          height={983}
           sizes="(min-width: 1024px) 46vw, 100vw"
           className="block h-auto w-full"
           priority

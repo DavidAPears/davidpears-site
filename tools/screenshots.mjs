@@ -25,13 +25,13 @@ const RAW = path.join(ROOT, ".screenshots-raw");
 
 const TARGETS = [
   { name: "b2b-home", url: "https://navisavitravel.com/", w: 1440, h: 900 },
-  { name: "b2b-search", url: "https://navisavitravel.com/search", w: 1440, h: 900 },
-  { name: "b2c-home", url: "https://navi-savi.com/", w: 1440, h: 900 },
   { name: "eco-home", url: "https://marketing.navisavitravel.com/", w: 1440, h: 900 },
 ];
 
-// The phone shot is not captured here — public/images/work/app-home.png is a
-// real React Native app screenshot with its background knocked out.
+// Not captured here, because they are hand-trimmed:
+//   app-home.png     a real React Native screenshot, background knocked out
+//   b2b-search.jpg   the AI Search tab, whitespace edited down
+//   b2c-detail.jpg   a video place page, whitespace edited down
 
 async function clearOverlays(page) {
   await page.evaluate(() => {
@@ -121,6 +121,16 @@ for (const t of TARGETS) {
     await page.goto(t.url, { waitUntil: "networkidle2", timeout: 45000 });
     await new Promise((r) => setTimeout(r, 2500));
     await clearOverlays(page);
+
+    if (t.click) {
+      await page.evaluate((label) => {
+        const el = [...document.querySelectorAll("button, a, [role='tab'], div")].find(
+          (n) => n.textContent?.trim() === label && n.offsetParent !== null,
+        );
+        el?.click();
+      }, t.click);
+      await new Promise((r) => setTimeout(r, 1200));
+    }
 
     // Nudge lazy-loaded media into view, then return to the top.
     await page.evaluate(async () => {

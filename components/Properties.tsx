@@ -17,14 +17,13 @@ export default function Properties() {
           rel="noreferrer"
           className="group flex flex-col bg-ground no-underline transition-colors hover:bg-ground-2"
         >
-          <span className="block overflow-hidden border-b border-graticule">
+          <span className="relative block aspect-[16/9] overflow-hidden border-b border-graticule">
             <Image
               src={item.shot}
-              alt={`The ${item.domain} home page.`}
-              width={1800}
-              height={1125}
+              alt={`${item.domain}, as it looks today.`}
+              fill
               sizes="(min-width: 768px) 33vw, 100vw"
-              className="block h-auto w-full transition-transform duration-500 group-hover:scale-[1.03]"
+              className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
             />
           </span>
 
