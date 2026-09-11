@@ -42,3 +42,26 @@ Anything unfinished renders as a visible amber **Slot** rather than a silent pla
 ## Testimonials
 
 The three quotes in `content/site.ts` are verbatim from the old site and attributed to named people: Ryan Bromley, Sally Bunnell, Ryan Anglem. They read like opening sentences; if fuller versions exist, paste them in. Do not paraphrase them.
+
+## Secrets
+
+The NaviSavi commercial API key is **server-side only**. It is read from
+`process.env.NAVISAVI_API_KEY` inside route handlers and server components, so
+it never reaches the browser.
+
+- Local: put it in `.env.local`, which `.gitignore` covers via `.env*`.
+- Production: set it in the host's environment settings (Vercel project ->
+  Settings -> Environment Variables). Never in the repo.
+- **Never prefix it with `NEXT_PUBLIC_`.** That prefix inlines a value into the
+  client bundle, where anyone can read it with View Source.
+- `.env.example` lists the variable names with no values.
+
+A pre-commit hook in `.githooks/` blocks env files and pasted credentials.
+It is enabled per clone, so after cloning run:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+If a key is ever exposed, rotating it at the provider is the fix. Removing the
+commit is not enough, because it has already been distributed.

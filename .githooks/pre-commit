@@ -1,0 +1,33 @@
+#!/bin/sh
+# Blocks two ways a secret reaches the repo: committing an env file at all, and
+# pasting a key into ordinary source. Bypassing this with --no-verify on a file
+# that holds a real credential means rewriting history afterwards, so don't.
+
+fail=0
+
+env_staged=$(git diff --cached --name-only --diff-filter=ACM | grep -E '(^|/)\.env' | grep -v '\.env\.example$')
+if [ -n "$env_staged" ]; then
+  echo "BLOCKED: env file staged for commit:"
+  echo "$env_staged" | sed 's/^/  /'
+  echo "  Secrets belong in .env.local (ignored) and in the host's env settings."
+  fail=1
+fi
+
+# Look for a key pasted into source. Matches an assignment to something named
+# key/secret/token whose value is long enough to be real.
+leak=$(git diff --cached --diff-filter=ACM -U0 \
+  | grep -E '^\+' \
+  | grep -vE '^\+\+\+' \
+  | grep -iEn "(api[_-]?key|secret|token|password)[\"']?\s*[:=]\s*[\"']?[A-Za-z0-9_\-]{20,}")
+if [ -n "$leak" ]; then
+  echo "BLOCKED: this looks like a credential in source:"
+  echo "$leak" | cut -c1-120 | sed 's/^/  /'
+  echo "  Read it from process.env instead."
+  fail=1
+fi
+
+if [ "$fail" -ne 0 ]; then
+  echo
+  echo "Nothing was committed."
+  exit 1
+fi
