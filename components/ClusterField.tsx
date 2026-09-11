@@ -2,6 +2,9 @@
 
 import { useEffect, useRef } from "react";
 
+import { LAND } from "@/lib/land";
+import { project } from "@/lib/projection";
+
 /**
  * The hero's live cluster field.
  *
@@ -33,6 +36,8 @@ const REGIONS = [
 ];
 
 const GRATICULE = "#1E2A38";
+const LAND_FILL = "#18242F";
+const LAND_EDGE = "#2B3D4F";
 const PAPER = "237,231,220";
 const PINK = "255,0,128";
 const AQUA = "42,239,224";
@@ -123,10 +128,31 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     };
 
+    const land = () => {
+      ctx.fillStyle = LAND_FILL;
+      ctx.strokeStyle = LAND_EDGE;
+      ctx.lineWidth = 1;
+
+      for (const ring of LAND) {
+        ctx.beginPath();
+        for (let i = 0; i < ring.length; i++) {
+          const [lng, lat] = ring[i];
+          const { x, y } = project(lat, lng);
+          const px = x * w;
+          const py = y * h;
+          if (i === 0) ctx.moveTo(px, py);
+          else ctx.lineTo(px, py);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+      }
+    };
+
     const graticule = () => {
       ctx.strokeStyle = GRATICULE;
       ctx.lineWidth = 1;
-      ctx.globalAlpha = 0.8;
+      ctx.globalAlpha = 0.5;
       const step = 68;
 
       for (let x = step; x < w; x += step) {
@@ -154,6 +180,7 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
 
     const draw = (t: number) => {
       ctx.clearRect(0, 0, w, h);
+      land();
       graticule();
 
       const zoom = reduce ? 3.4 : 3.2 + Math.sin(t * 0.00012) * 1.9;

@@ -1,5 +1,7 @@
 import "server-only";
 
+import { project } from "@/lib/projection";
+
 /**
  * Reads the NaviSavi commercial API.
  *
@@ -45,22 +47,6 @@ async function getPage(page: number): Promise<ApiLocation[]> {
 
   const json = (await res.json()) as { data?: ApiLocation[] };
   return json.data ?? [];
-}
-
-/**
- * Web Mercator, clamped well short of the poles. Greenland and Antarctica
- * stretch badly past ~72 degrees and there is little footage up there anyway.
- */
-function project(lat: number, lng: number) {
-  const clamped = Math.max(-72, Math.min(72, lat));
-  const rad = (clamped * Math.PI) / 180;
-  const mercator = Math.log(Math.tan(Math.PI / 4 + rad / 2));
-  const maxMercator = Math.log(Math.tan(Math.PI / 4 + (72 * Math.PI) / 180 / 2));
-
-  return {
-    x: (lng + 180) / 360,
-    y: 0.5 - mercator / (2 * maxMercator),
-  };
 }
 
 /**

@@ -1,6 +1,6 @@
 import DeviceRig from "@/components/DeviceRig";
 import Properties from "@/components/Properties";
-import { BandHead, Chip, SlotNote } from "@/components/ui";
+import { BandHead, Chip } from "@/components/ui";
 import { caseStudy } from "@/content/site";
 
 /** Renders the single **bold** span the intro paragraphs use. */
@@ -60,10 +60,6 @@ export default function CaseStudy() {
 
         <div>
           <DeviceRig />
-          <SlotNote>
-            More app screens would earn their place here: the map, a video detail page,
-            the booking step. One capture each and this becomes a proper gallery.
-          </SlotNote>
         </div>
       </div>
 
