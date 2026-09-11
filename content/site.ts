@@ -93,9 +93,9 @@ export const caseStudy: {
         "Stripe payments, webhook-driven fulfilment, licence delivery and download — and the booking flow that turns a video into a trip.",
     },
     {
-      title: "MOATS & API access",
+      title: "MOATS & the commercial API",
       detail:
-        "The branded hub that converts guest and creator video into approved brand content, and the API that embeds the library into other platforms.",
+        "The branded hub that converts guest and creator video into approved brand content — and the public API I oversaw the creation of, with proximity, taxonomy and natural-language search, and SDKs in TypeScript, Python and Ruby.",
     },
     {
       title: "Native apps",
