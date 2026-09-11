@@ -133,28 +133,30 @@ export const caseStudy: {
 };
 
 /**
- * Verbatim from davidpearsconsulting.com, and attributed to named people.
- * They read as opening sentences; if fuller versions exist, paste them in.
- * Never paraphrase them.
+ * Verbatim, and attributed to named people. The spaced hyphens and the
+ * semicolon are theirs. Never tidy or paraphrase these.
  */
 export const testimonials = [
   {
     quote:
-      "David led the team I hired to help develop the concept of SearchParties from an idea up to a working MVP/Prototype app.",
+      "David led the team I hired to help develop the concept of SearchParties from an idea up to a working MVP/Prototype app. I could not be happier with both him and his team\u2019s work. David is a communicative Project Manager/Developer and helped me understand the processes and decisions behind creating our product - something I greatly appreciated",
     name: "Ryan Bromley",
     role: "CEO & Founder, SearchParties",
+    country: "England",
   },
   {
     quote:
-      "David, when it comes to a deep understanding of what was required and delivering a working solution, is one of the best I have met.",
+      "As a CEO I have come into contact with many Tech Leads & Software Developers - and David, when it comes to a deep understanding of what was required and delivering a working solution, is one of the best I have met. I appreciated how communicative, reliable, and responsive he is; and the empathy he displayed for both the product and our users and me!",
     name: "Sally Bunnell",
     role: "CEO & Founder, NaviSavi Travel",
+    country: "USA",
   },
   {
     quote:
-      "David was a huge asset to our team at Solidsport. We had a difficult deadline to meet when he started.",
+      "David was a huge asset to our team at Solidsport. We had a difficult deadline to meet when he started and he was able to get up to speed quickly, working with the team to create a solution that not only got us over the line but was maintainable and scalable.",
     name: "Ryan Anglem",
     role: "Tech Lead, SolidSport AB",
+    country: "Sweden",
   },
 ] as const;
 

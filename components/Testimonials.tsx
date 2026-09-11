@@ -25,9 +25,10 @@ export default function Testimonials() {
               </p>
             </blockquote>
 
-            <figcaption className="flex flex-col gap-0.5">
+            <figcaption className="flex flex-col gap-1">
               <span className="text-sm font-semibold text-paper">{item.name}</span>
               <span className="mono">{item.role}</span>
+              <span className="mono !text-muted-dim">{item.country}</span>
             </figcaption>
           </figure>
         ))}
