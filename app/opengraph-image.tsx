@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "David Pears — CTO at NaviSavi";
+export const alt = "David Pears, CTO at NaviSavi";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -13,7 +13,7 @@ const AQUA = "#2AEFE0";
 
 /**
  * The hero's cluster field, frozen at one zoom level and kept clear of the
- * headline's column — the type is the point, the field is atmosphere.
+ * headline's column. The type is the point, the field is atmosphere.
  */
 const CLUSTERS = [
   { x: 790, y: 170, r: 26, n: 7 },
@@ -154,7 +154,7 @@ export default async function Image() {
           letterSpacing: 3,
         }}
       >
-        CTO — NAVISAVI
+        CTO · NAVISAVI
       </div>
 
       <div

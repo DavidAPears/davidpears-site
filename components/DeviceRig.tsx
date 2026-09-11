@@ -3,7 +3,7 @@ import Image from "next/image";
 /**
  * The licensing search page in a browser frame, beside the real React Native
  * app. The app shot arrives with its own device frame and a knocked-out
- * background, so it needs no chrome from us — just room to sit.
+ * background, so it needs no chrome from us, just room to sit.
  *
  * Regenerate the web captures with `node tools/screenshots.mjs`.
  */

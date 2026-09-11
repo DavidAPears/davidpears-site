@@ -14,7 +14,7 @@ export function Chip({ label, tone }: { label: string; tone?: "hot" | "cool" }) 
   return <span className={`chip ${toneClass}`}>{label}</span>;
 }
 
-/** A visible, deliberate gap — never a silent placeholder. */
+/** A visible, deliberate gap, never a silent placeholder. */
 export function SlotNote({ children }: { children: ReactNode }) {
   return (
     <div className="mt-[1.1rem] flex items-start gap-[0.65rem] rounded-[5px] border border-dashed border-amber/40 bg-amber/[0.06] px-[0.85rem] py-[0.7rem]">

@@ -1,16 +1,16 @@
 /**
  * All page copy and data lives here, so editing the site never means editing JSX.
  *
- * Roles, dates and the 250k figure come from David's CV (September 2026) —
+ * Roles, dates and the 250k figure come from David's CV (September 2026), at
  * `public/cv/david-pears-cv.pdf`. Keep the two in step.
  *
- * Anything marked `pending: true` is a deliberate gap, not an oversight — it
- * renders as a visible amber slot rather than inventing a fact.
+ * Anything marked `pending: true` is a deliberate gap rather than an oversight.
+ * It renders as a visible amber slot instead of inventing a fact.
  */
 
 export const profile = {
   name: "David Pears",
-  standby: "Currently — Co-founder & CTO at NaviSavi",
+  standby: "Currently: Co-founder & CTO at NaviSavi",
   headline: {
     before: "Technology lead who still writes the ",
     accent: "front end",
@@ -27,8 +27,8 @@ export const slate = [
 ] as const;
 
 /**
- * The three public front ends. Figures are taken from the sites themselves —
- * note they disagree slightly: the marketing site says 180+ destinations while
+ * The three public front ends. Figures come from the sites themselves, and note
+ * that they disagree slightly: the overview site says 180+ destinations while
  * the licensing site says 190+ countries.
  */
 export const properties = [
@@ -48,16 +48,16 @@ export const properties = [
     audience: "Consumer",
     title: "Real travel. Not travel reels.",
     detail:
-      "Video-first discovery, browsable by country, vibe, place type, season and traveller type. Every clip carries its own place page — vibes, nearby hotels, tours, and when to go.",
+      "Video-first discovery, browsable by country, vibe, place type, season and traveller type. Every clip carries its own place page, with the vibes, nearby hotels, tours and the best time to go.",
   },
   {
     domain: "marketing.navisavitravel.com",
     href: "https://marketing.navisavitravel.com/",
     shot: "/images/work/eco-overview.jpg",
-    audience: "Ecosystem",
+    audience: "Overview",
     title: "Authentic travel video for modern travel companies.",
     detail:
-      "How the pieces fit: content enters through MOATS or traveller uploads, gets structured and rights-cleared, then distributes to booking products and APIs.",
+      "The case to the industry: how traveller video is captured, structured, rights-cleared, and put to work in websites, booking journeys and apps.",
   },
 ];
 
@@ -71,36 +71,40 @@ export const caseStudy: {
   stack: StackChip[];
 } = {
   name: "NaviSavi",
-  period: "Case study · 2020 — present",
+  period: "Case study · 2020 to present",
   intro: [
     "NaviSavi is **video infrastructure for the travel industry**. Travellers now decide where to go by watching video, but travel businesses still run on static photography and fragmented rights. NaviSavi turns authentic traveller footage into structured, rights-cleared, bookable media.",
-    "That is not one product but **three front ends over one catalogue** of 250k+ videos across 190+ countries — a consumer discovery app, a business licensing platform, and the ecosystem site that explains how they connect. I co-founded the company and own the frontend across all of it, on web and in React Native.",
+    "One catalogue of 250k+ videos across 190+ countries, with **four products built on top of it**: a consumer discovery app, a licensing platform for business, a B2C booking OTA, and a commercial API. I co-founded the company and own the front end across all of it, on web and in React Native.",
   ],
   owned: [
     {
-      title: "Frontend architecture",
+      title: "Front-end architecture",
       detail:
-        "Three public front ends over a shared platform API, fronted by a BFF layer with typed clients generated from the OpenAPI spec.",
+        "Every public front end over a shared platform API, behind a BFF layer, with typed clients generated from the OpenAPI spec.",
     },
     {
-      title: "Discovery & search",
+      title: "Discovery and search",
       detail:
-        "Clustered map browsing with deck.gl and supercluster, plus the taxonomy the consumer site is navigated by — country, vibe, place type, experience, traveller type, season.",
+        "Clustered map browsing with deck.gl and supercluster, plus the taxonomy the consumer product is navigated by, across country, vibe, place type, experience, traveller type and season.",
     },
     {
-      title: "Licensing & checkout",
+      title: "Licensing and checkout",
       detail:
-        "Stripe payments, webhook-driven fulfilment, licence delivery and download — and the booking flow that turns a video into a trip.",
+        "Stripe payments, webhook-driven fulfilment, licence delivery and download.",
     },
     {
-      title: "MOATS & the commercial API",
+      title: "Booking",
       detail:
-        "The branded hub that converts guest and creator video into approved brand content — and the public API I oversaw the creation of, with proximity, taxonomy and natural-language search, and SDKs in TypeScript, Python and Ruby.",
+        "The OTA side, where a video becomes a trip. Hotels, tours and experiences, with member pricing through the Travel Club.",
+    },
+    {
+      title: "MOATS and the commercial API",
+      detail:
+        "The branded hub that turns guest and creator video into approved brand content, and the public API I oversaw the creation of, with proximity, taxonomy and natural-language search, and SDKs in TypeScript, Python and Ruby.",
     },
     {
       title: "Native apps",
-      detail:
-        "The React Native iOS and Android clients, from build config to store release.",
+      detail: "The React Native iOS and Android clients, from build config to store release.",
     },
     {
       title: "Leading the team",
@@ -127,9 +131,9 @@ export const caseStudy: {
 };
 
 /**
- * Verbatim from davidpearsconsulting.com. These read as opening sentences —
- * if fuller versions exist, paste them in; do not paraphrase, they are
- * attributed to named people.
+ * Verbatim from davidpearsconsulting.com, and attributed to named people.
+ * They read as opening sentences; if fuller versions exist, paste them in.
+ * Never paraphrase them.
  */
 export const testimonials = [
   {
@@ -164,24 +168,24 @@ export type RosterEntry = {
 
 export const roster: RosterEntry[] = [
   {
-    years: "2020 — NOW",
+    years: "2020 - NOW",
     name: "NaviSavi",
     role: "Co-founder & CTO · Stockholm",
     detail:
-      "Consumer and B2B travel platform built around video, discovery, licensing and booking.",
+      "Travel video platform: discovery and booking for travellers, licensing and an API for the industry.",
     tags: ["React Native", "Next.js", "TypeScript", "Stripe", "deck.gl"],
     href: "#navisavi",
   },
   {
-    years: "2026 — NOW",
+    years: "2026 - NOW",
     name: "Indeez",
     role: "Senior React Native Engineer, consultant · Remote",
     detail:
-      "A social music app — MySpace reinvented for mobile, where fans, artists, venues and record stores all share the same space. Built around a player whose discovery feed works like a swipe deck: keep a track or skip it, and the algorithm learns what grassroots music you actually want.",
+      "A social music app, built from the ground up. Fans, artists, venues and record stores share one space, around a player whose discovery feed works like a swipe deck: keep a track or skip it, and the algorithm learns which grassroots music to serve you next.",
     tags: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "AWS"],
   },
   {
-    years: "2022 — 2023",
+    years: "2022 - 2023",
     name: "SolidSport",
     role: "Senior Mobile Developer · Stockholm",
     detail:
@@ -197,15 +201,14 @@ export const roster: RosterEntry[] = [
     tags: ["React Native", "TypeScript"],
   },
   {
-    years: "2020 — 2022",
+    years: "2020 - 2022",
     name: "Tangy Market",
     role: "Software Developer · Stockholm",
-    detail:
-      "Mobile UI, APIs and product development for a Swedish music-fintech startup.",
+    detail: "Mobile UI, APIs and product development for a Swedish music-fintech startup.",
     tags: ["React Native"],
   },
   {
-    years: "2019 — 2020",
+    years: "2019 - 2020",
     name: "Beatchain",
     role: "Software Developer · London",
     detail:
@@ -213,7 +216,7 @@ export const roster: RosterEntry[] = [
     tags: ["React Native", "TypeScript", "GraphQL"],
   },
   {
-    years: "2018 — 2019",
+    years: "2018 - 2019",
     name: "LevelStudios",
     role: "Software Developer / Product Manager · Edinburgh",
     detail:
@@ -221,20 +224,11 @@ export const roster: RosterEntry[] = [
     tags: ["React", "React Native", "JavaScript"],
   },
   {
-    years: "YEAR?",
-    name: "Fanbased",
-    role: "Role?",
-    detail:
-      "Not on the CV, but there is a repo for it. Worth a row if it is worth showing — tell me what it is.",
-    tags: ["stack?"],
-    pending: true,
-  },
-  {
-    years: "2004 — 2018",
+    years: "2004 - 2018",
     name: "Earlier career",
     role: "Music, media & financial services",
     detail:
-      "A decade across music, television and digital media — Endemol, Guardian Media Group, artist management — then adjudicating regulated advice disputes at the Financial Ombudsman Service.",
+      "A decade across music, television and digital media, including Endemol, Guardian Media Group and artist management. Before that, adjudicating regulated advice disputes at the Financial Ombudsman Service.",
     tags: ["Rights & licensing", "Digital content"],
   },
 ];
@@ -244,10 +238,10 @@ export const cv = {
   href: "/cv/david-pears-cv.pdf",
   updated: "September 2026",
   blurb:
-    "Highlights live on the page above; the PDF is for the people who need to forward it. One file, kept current, no form to fill in first.",
+    "Highlights live on the page above. The PDF is for the people who need to forward it: one file, kept current, no form to fill in first.",
 };
 
-/** read.cv shut down on 16 May 2025 — the old site's CV link is dead. */
+/** read.cv shut down on 16 May 2025, so the old site's CV link is dead. */
 export const links: { label: string; href: string; pending?: boolean }[] = [
   { label: "Email", href: "mailto:davidapears@gmail.com" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/davepears/" },

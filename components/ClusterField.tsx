@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
  * The hero's live cluster field.
  *
  * Points are bucketed into grid cells and drawn as one bubble per bucket,
- * labelled with its count — the same grouping idea as the supercluster layer
+ * labelled with its count. Same grouping idea as the supercluster layer
  * behind NaviSavi's map search. A slow breathing zoom changes the cell size,
  * so groups merge and split the way they do when you zoom a real map.
  */
@@ -311,19 +311,19 @@ export default function ClusterField() {
         <div className="flex flex-col gap-0.5">
           <span className="mono">clips</span>
           <span ref={pointsOut} className="font-mono text-sm tabular-nums text-paper">
-            —
+            ··
           </span>
         </div>
         <div className="flex flex-col gap-0.5">
           <span className="mono">clusters</span>
           <span ref={clustersOut} className="font-mono text-sm tabular-nums text-paper">
-            —
+            ··
           </span>
         </div>
         <div className="flex flex-col gap-0.5">
           <span className="mono">zoom</span>
           <span ref={zoomOut} className="font-mono text-sm tabular-nums text-paper">
-            —
+            ··
           </span>
         </div>
       </div>

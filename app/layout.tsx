@@ -22,7 +22,7 @@ const chivoMono = Chivo_Mono({
 });
 
 const DESCRIPTION =
-  "CTO at NaviSavi. Technology lead who still writes the front end — web storefront, iOS and Android.";
+  "CTO at NaviSavi. Technology lead who still writes the front end: web, iOS and Android.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://davidpears.com"),

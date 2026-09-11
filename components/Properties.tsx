@@ -3,7 +3,7 @@ import Image from "next/image";
 import { properties } from "@/content/site";
 
 /**
- * The three public front ends, as links — the thing a visitor most wants from
+ * The three public front ends, as links. The thing a visitor most wants from
  * this page is to go and look at the actual work.
  */
 export default function Properties() {

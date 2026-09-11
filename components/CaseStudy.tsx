@@ -44,7 +44,7 @@ export default function CaseStudy() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span>
-                  <b className="font-semibold text-paper">{item.title}</b> &mdash;{" "}
+                  <b className="font-semibold text-paper">{item.title}</b>{": "}
                   {item.detail}
                 </span>
               </li>
@@ -61,9 +61,8 @@ export default function CaseStudy() {
         <div>
           <DeviceRig />
           <SlotNote>
-            More app screens would earn their place here &mdash; the map, a video detail
-            page, the booking step. One more capture each and this becomes a proper
-            gallery.
+            More app screens would earn their place here: the map, a video detail page,
+            the booking step. One capture each and this becomes a proper gallery.
           </SlotNote>
         </div>
       </div>

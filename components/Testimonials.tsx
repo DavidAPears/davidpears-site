@@ -2,7 +2,7 @@ import { BandHead } from "@/components/ui";
 import { testimonials } from "@/content/site";
 
 /**
- * Three named CEOs and tech leads vouching for him — carried over from the old
+ * Three named CEOs and tech leads vouching for him, carried over from the old
  * consulting site, which was the one asset on it worth keeping.
  */
 export default function Testimonials() {
