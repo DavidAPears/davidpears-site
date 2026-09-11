@@ -56,12 +56,24 @@ it never reaches the browser.
   client bundle, where anyone can read it with View Source.
 - `.env.example` lists the variable names with no values.
 
-A pre-commit hook in `.githooks/` blocks env files and pasted credentials.
+## Checks
+
+A pre-commit hook in `.githooks/` runs, in order:
+
+1. **Secrets** - blocks staged env files and credentials pasted into source.
+   First, because it is the only failure a later commit cannot undo.
+2. **Prettier** - formats staged files and re-stages them.
+3. **ESLint** - no warnings allowed.
+4. **tsc** - no emit, types must pass.
+
 It is enabled per clone, so after cloning run:
 
 ```bash
 git config core.hooksPath .githooks
 ```
+
+`npm run verify` runs the same format, lint and type checks by hand.
+`git commit --no-verify` skips them, which is for emergencies only.
 
 If a key is ever exposed, rotating it at the provider is the fix. Removing the
 commit is not enough, because it has already been distributed.
