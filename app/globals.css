@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+@theme {
+  /* Night-map ground. Neutrals carry a blue bias so they sit with the map,
+     rather than reading as unconsidered grey. */
+  --color-ground: #0a0f16;
+  --color-ground-2: #111823;
+  --color-ground-3: #161f2b;
+  --color-graticule: #1e2a38;
+
+  --color-paper: #ede7dc;
+  --color-body: #c3c9d2;
+  --color-muted: #8494a6;
+  --color-muted-dim: #5a6878;
+
+  /* NaviSavi's own hues, used here as data colours: pink groups, aqua singles. */
+  --color-signal: #ff0080;
+  --color-signal-soft: #ff4da6;
+  --color-aqua: #2aefe0;
+  --color-amber: #f0b429;
+
+  --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-chivo), ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+:root {
+  --gutter: clamp(2rem, 5vw, 7rem);
+  --rule: 1px solid var(--color-graticule);
+}
+
+/* Committed single-theme: this is a colour-grading suite, not a document.
+   Every colour is painted explicitly so the page holds on any host ground. */
+body {
+  background: var(--color-ground);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-aqua);
+  outline-offset: 3px;
+}
+
+.gutter {
+  padding-inline: var(--gutter);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.688rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  font-weight: 500;
+}
+
+/* ---------- type ---------- */
+
+.display-xl {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 118, "wght" 720;
+  font-size: clamp(2.5rem, 6.4vw, 5.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 112, "wght" 660;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.display-sm {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 106, "wght" 620;
+  font-size: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.display-slate {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 100, "wght" 560;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+}
+
+/* ---------- controls ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1.35rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s,
+    transform 0.18s;
+}
+
+.btn svg {
+  width: 14px;
+  height: 14px;
+  flex: none;
+}
+
+.btn-primary {
+  background: var(--color-signal);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e60073;
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-amber);
+  border-color: color-mix(in srgb, var(--color-amber) 42%, transparent);
+}
+
+.btn-ghost:hover {
+  background: color-mix(in srgb, var(--color-amber) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+.chip {
+  font-family: var(--font-mono);
+  font-size: 0.688rem;
+  letter-spacing: 0.06em;
+  padding: 0.34rem 0.6rem;
+  border: 1px solid var(--color-graticule);
+  border-radius: 3px;
+  color: var(--color-muted);
+  background: var(--color-ground-2);
+  white-space: nowrap;
+}
+
+.chip-hot {
+  color: var(--color-signal-soft);
+  border-color: color-mix(in srgb, var(--color-signal) 38%, transparent);
+}
+
+.chip-cool {
+  color: var(--color-aqua);
+  border-color: color-mix(in srgb, var(--color-aqua) 30%, transparent);
+}
+
+/* ---------- structure ---------- */
+
+.band {
+  padding-block: clamp(4rem, 8vw, 6.5rem);
+  border-bottom: var(--rule);
+}
+
+.rule-t {
+  border-top: var(--rule);
+}
+.rule-b {
+  border-bottom: var(--rule);
+}
+.rule-r {
+  border-right: var(--rule);
+}
+
+/* ---------- device frames ---------- */
+
+.tile {
+  aspect-ratio: 16 / 10;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+  background: var(--color-ground-3);
+}
+
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background: var(--tile-wash, linear-gradient(135deg, #22304a, #624ff7));
+}
+
+.tile > span {
+  position: absolute;
+  z-index: 2;
+  left: 0.35rem;
+  bottom: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.reel {
+  aspect-ratio: 9 / 14;
+  border-radius: 6px;
+  background: linear-gradient(160deg, #1b3a4b, #0a0f16 70%);
+  position: relative;
+}
+
+.reel::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-signal) 85%, transparent);
+}
+
+/* ---------- hero ---------- */
+
+.hero-veil {
+  background:
+    radial-gradient(
+      120% 90% at 8% 30%,
+      rgba(10, 15, 22, 0.94) 0%,
+      rgba(10, 15, 22, 0.72) 38%,
+      rgba(10, 15, 22, 0.1) 72%
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(10, 15, 22, 0.55) 0%,
+      transparent 30%,
+      rgba(10, 15, 22, 0.85) 100%
+    );
+}
+
+@keyframes ping {
+  0% {
+    box-shadow: 0 0 0 0 rgba(42, 239, 224, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(42, 239, 224, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(42, 239, 224, 0);
+  }
+}
+
+.ping {
+  animation: ping 2.6s ease-out infinite;
+}
+
+/* ---------- rows ---------- */
+
+.row-link {
+  transition:
+    background 0.2s,
+    padding-left 0.2s;
+}
+
+.row-link:hover {
+  background: var(--color-ground-2);
+  padding-left: 0.85rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ping {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
+}
