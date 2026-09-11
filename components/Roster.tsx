@@ -12,7 +12,8 @@ function RowBody({ entry }: { entry: RosterEntry }) {
         <h3 className={`display-sm m-0 mb-1 ${entry.pending ? "text-muted" : ""}`}>
           {entry.name}
         </h3>
-        <p className="m-0 max-w-[42ch] text-sm text-muted">{entry.detail}</p>
+        <p className="m-0 mb-1.5 text-[0.813rem] text-paper/80">{entry.role}</p>
+        <p className="m-0 max-w-[46ch] text-sm text-muted">{entry.detail}</p>
       </div>
 
       <div className="flex flex-wrap gap-[0.35rem] max-md:col-start-2">

@@ -22,10 +22,11 @@ export default function Hero() {
         </h1>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
-          I&rsquo;m David Pears. I run engineering at{" "}
+          I&rsquo;m David Pears. I co-founded{" "}
           <strong className="font-semibold text-paper">NaviSavi</strong>, a travel-video
-          licensing marketplace &mdash; and I build the storefront and the iOS and Android
-          apps that sit on top of it. Architecture on Monday, pixels on Friday.
+          licensing marketplace, and own the frontend across it &mdash; the web storefront
+          and the React Native apps, over a catalogue of 250k+ videos. Architecture on
+          Monday, pixels on Friday.
         </p>
 
         <div className="pointer-events-auto flex flex-wrap items-center gap-3">

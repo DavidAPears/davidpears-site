@@ -1,4 +1,4 @@
-import { DownloadIcon, SlotNote } from "@/components/ui";
+import { DownloadIcon } from "@/components/ui";
 import { cv } from "@/content/site";
 
 export default function CvBlock() {
@@ -8,11 +8,6 @@ export default function CvBlock() {
         <div>
           <h2 className="display-lg m-0">Take the CV with you</h2>
           <p className="mt-4 mb-0 max-w-[48ch] text-body">{cv.blurb}</p>
-          <SlotNote>
-            Drop the PDF at <code className="font-mono text-amber">public/cv/{cv.filename}</code>{" "}
-            and this button starts working. Your old site pointed at read.cv, which shut
-            down on 16 May 2025 &mdash; that link is dead.
-          </SlotNote>
         </div>
 
         <div className="flex min-w-[17rem] flex-col gap-4 rounded-lg border border-graticule bg-ground-2 p-6">
