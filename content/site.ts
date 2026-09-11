@@ -33,15 +33,6 @@ export const slate = [
  */
 export const properties = [
   {
-    domain: "navi-savi.com",
-    href: "https://navi-savi.com/",
-    shot: "/images/work/b2c-detail.jpg",
-    audience: "Consumer",
-    title: "Real travel. Not travel reels.",
-    detail:
-      "Video-first discovery, browsable by country, vibe, place type, season and traveller type. Every clip carries its own place page — vibes, nearby hotels, tours, and when to go.",
-  },
-  {
     domain: "navisavitravel.com",
     href: "https://navisavitravel.com/",
     shot: "/images/work/b2b-library.jpg",
@@ -49,6 +40,15 @@ export const properties = [
     title: "The world's leading travel video library.",
     detail:
       "Rights-cleared licensing for hotels, airlines, OTAs and travel brands, plus a 5,000-strong creator network, MOATS and API access.",
+  },
+  {
+    domain: "navi-savi.com",
+    href: "https://navi-savi.com/",
+    shot: "/images/work/b2c-detail.jpg",
+    audience: "Consumer",
+    title: "Real travel. Not travel reels.",
+    detail:
+      "Video-first discovery, browsable by country, vibe, place type, season and traveller type. Every clip carries its own place page — vibes, nearby hotels, tours, and when to go.",
   },
   {
     domain: "marketing.navisavitravel.com",
