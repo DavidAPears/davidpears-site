@@ -6,7 +6,7 @@ export default function CvBlock() {
     <section id="cv" className="band gutter">
       <div className="grid grid-cols-1 items-center gap-[clamp(2rem,5vw,4rem)] lg:grid-cols-[minmax(0,1fr)_auto]">
         <div>
-          <h2 className="display-lg m-0">Take the CV with you</h2>
+          <h2 className="display-lg m-0">The full CV</h2>
           <p className="mt-4 mb-0 max-w-[48ch] text-body">{cv.blurb}</p>
         </div>
 

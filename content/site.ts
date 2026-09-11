@@ -242,7 +242,7 @@ export const cv = {
   href: "/cv/david-pears-cv.pdf",
   updated: "September 2026",
   blurb:
-    "Highlights live on the page above. The PDF is for the people who need to forward it: one file, kept current, no form to fill in first.",
+    "Everything above in one file, plus the detail this page leaves out: exact dates, the full stack for each role, and the media and financial services years before I moved into engineering.",
 };
 
 /** read.cv shut down on 16 May 2025, so the old site's CV link is dead. */
