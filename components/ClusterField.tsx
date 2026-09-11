@@ -183,7 +183,7 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
       land();
       graticule();
 
-      const zoom = reduce ? 3.4 : 3.2 + Math.sin(t * 0.00012) * 1.9;
+      const zoom = reduce ? 3.4 : 3.4 + Math.sin(t * 0.00004) * 1.2;
       const cell = Math.max(46, 250 / zoom);
 
       const px = (pointer.x - 0.5) * 26;
@@ -192,9 +192,8 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
       const cells = new Map<string, { sx: number; sy: number; n: number }>();
 
       for (const p of points) {
-        const wob = reduce ? 0 : Math.sin(t * 0.00022 * p.drift + p.phase) * 5;
-        const sx = p.x * w + wob + px * p.drift;
-        const sy = p.y * h + wob * 0.5 + py * p.drift;
+        const sx = p.x * w + px * p.drift;
+        const sy = p.y * h + py * p.drift;
         const key = `${Math.floor(sx / cell)}:${Math.floor(sy / cell)}`;
 
         const c = cells.get(key) ?? { sx: 0, sy: 0, n: 0 };
