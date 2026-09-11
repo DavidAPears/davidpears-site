@@ -38,13 +38,13 @@ export default function Hero() {
             <DownloadIcon />
           </a>
         </div>
-      </div>
 
-      <div className="gutter relative z-10 flex max-w-[34rem] items-baseline gap-[0.6rem] pb-5 md:absolute md:bottom-5 md:pb-0">
-        <span className="mono !text-muted-dim">Above &mdash;</span>
-        <span className="font-mono text-[0.688rem] tracking-[0.08em] text-aqua">
-          live cluster field · the grouping model behind NaviSavi map search
-        </span>
+        <p className="mt-14 mb-0 flex max-w-[40rem] flex-wrap items-baseline gap-x-[0.6rem] gap-y-1">
+          <span className="mono !text-muted-dim">Above &mdash;</span>
+          <span className="font-mono text-[0.688rem] tracking-[0.08em] text-aqua">
+            live cluster field · the grouping model behind NaviSavi map search
+          </span>
+        </p>
       </div>
     </section>
   );
