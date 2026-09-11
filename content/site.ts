@@ -75,7 +75,7 @@ export const caseStudy: {
   name: "NaviSavi",
   period: "Case study · 2020 to present",
   intro: [
-    "Travellers choose where to go by watching video. The businesses selling those trips still run on static photography and footage whose rights nobody can clear, so the material that actually convinces people never reaches the people selling to them.",
+    "Modern travellers are inspired by watching video. The businesses selling those destinations still run on static photography, or on social media footage where rights clearance is tricky. The video that actually moves people is being made by travellers, and it never reaches the brands who need it.",
     "Closing that gap is an engineering problem before it is a content one. It means making 250k+ unedited clips findable by place, mood and season rather than by filename, clearing rights so that licensing is one click instead of one email thread, and serving **a single library through four products** that each want something different from it: a consumer discovery app, a licensing platform for business, a B2C booking OTA, and a commercial API.",
   ],
   owned: [
