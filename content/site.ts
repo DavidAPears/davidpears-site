@@ -22,9 +22,41 @@ export const profile = {
 export const slate = [
   { label: "Role", value: ["Co-founder & CTO", "NaviSavi"] },
   { label: "Builds in", value: ["React Native", "React", "TypeScript"] },
-  { label: "At scale", value: ["250k+ user-generated videos"] },
+  { label: "At scale", value: ["250k+ videos", "190+ countries"] },
   { label: "Based in", value: ["Stockholm", "7+ yrs commercial"] },
 ] as const;
+
+/**
+ * The three public front ends. Figures are taken from the sites themselves —
+ * note they disagree slightly: the marketing site says 180+ destinations while
+ * the licensing site says 190+ countries.
+ */
+export const properties = [
+  {
+    domain: "navi-savi.com",
+    href: "https://navi-savi.com/",
+    audience: "Consumer",
+    title: "Real travel. Not travel reels.",
+    detail:
+      "Video-first discovery. Unedited footage from real travellers, browsable by country, vibe, place type, season and traveller type — and every video is bookable.",
+  },
+  {
+    domain: "navisavitravel.com",
+    href: "https://navisavitravel.com/",
+    audience: "Business",
+    title: "The world's leading travel video library.",
+    detail:
+      "Rights-cleared licensing for hotels, airlines, OTAs and travel brands, plus a 5,000-strong creator network, MOATS and API access.",
+  },
+  {
+    domain: "marketing.navisavitravel.com",
+    href: "https://marketing.navisavitravel.com/",
+    audience: "Ecosystem",
+    title: "Authentic travel video for modern travel companies.",
+    detail:
+      "How the pieces fit: content enters through MOATS or traveller uploads, gets structured and rights-cleared, then distributes to booking products and APIs.",
+  },
+];
 
 type StackChip = { label: string; tone?: "hot" | "cool" };
 
@@ -38,24 +70,29 @@ export const caseStudy: {
   name: "NaviSavi",
   period: "Case study · 2020 — present",
   intro: [
-    "NaviSavi is a **travel-video licensing marketplace**: buyers search, preview and license curated footage sourced directly from independent creators, cutting out the overhead of a traditional stock agency.",
-    "I co-founded it and own the frontend architecture across both the consumer and B2B products — a Next.js storefront on the web, React Native on iOS and Android, over a catalogue of **250k+ user-generated videos**.",
+    "NaviSavi is **video infrastructure for the travel industry**. Travellers now decide where to go by watching video, but travel businesses still run on static photography and fragmented rights. NaviSavi turns authentic traveller footage into structured, rights-cleared, bookable media.",
+    "That is not one product but **three front ends over one catalogue** of 250k+ videos across 190+ countries — a consumer discovery app, a business licensing platform, and the ecosystem site that explains how they connect. I co-founded the company and own the frontend across all of it, on web and in React Native.",
   ],
   owned: [
     {
       title: "Frontend architecture",
       detail:
-        "Next.js storefront fronting the platform API through a BFF layer, with typed clients generated from the OpenAPI spec.",
+        "Three public front ends over a shared platform API, fronted by a BFF layer with typed clients generated from the OpenAPI spec.",
     },
     {
-      title: "Geospatial search",
+      title: "Discovery & search",
       detail:
-        "Clustered map browsing over the footage catalogue with deck.gl and supercluster.",
+        "Clustered map browsing with deck.gl and supercluster, plus the taxonomy the consumer site is navigated by — country, vibe, place type, experience, traveller type, season.",
     },
     {
       title: "Licensing & checkout",
       detail:
-        "Stripe payments, webhook-driven fulfilment, licence delivery and download.",
+        "Stripe payments, webhook-driven fulfilment, licence delivery and download — and the booking flow that turns a video into a trip.",
+    },
+    {
+      title: "MOATS & API access",
+      detail:
+        "The branded hub that converts guest and creator video into approved brand content, and the API that embeds the library into other platforms.",
     },
     {
       title: "Native apps",

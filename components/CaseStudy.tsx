@@ -1,4 +1,5 @@
 import DeviceRig from "@/components/DeviceRig";
+import Properties from "@/components/Properties";
 import { BandHead, Chip, SlotNote } from "@/components/ui";
 import { caseStudy } from "@/content/site";
 
@@ -60,13 +61,15 @@ export default function CaseStudy() {
         <div>
           <DeviceRig />
           <SlotNote>
-            Placeholder frames. These become your real screen grabs &mdash; search
-            results, the clustered map, video detail, checkout, the app home &mdash;
-            ideally exported through Rotato or Device Frames so they read as shipped
-            product.
+            Placeholder frames. These become your real screen grabs &mdash; the consumer
+            discovery grid, the clustered map, a video detail page, checkout, the app
+            home &mdash; ideally exported through Rotato or Device Frames so they read as
+            shipped product.
           </SlotNote>
         </div>
       </div>
+
+      <Properties />
     </section>
   );
 }
