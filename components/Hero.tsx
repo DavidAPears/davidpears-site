@@ -51,7 +51,7 @@ export default async function Hero() {
           <span className="mono !text-muted-dim">Above:</span>
           <span className="font-mono text-[0.688rem] tracking-[0.08em] text-aqua">
             {points.length > 0
-              ? `world map · ${points.length} real locations from the NaviSavi API, clustered live`
+              ? `${points.length} real locations from the NaviSavi API, clustered live`
               : "live cluster field · the grouping model behind NaviSavi map search"}
           </span>
         </p>
