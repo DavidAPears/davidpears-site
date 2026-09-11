@@ -25,13 +25,13 @@ const RAW = path.join(ROOT, ".screenshots-raw");
 
 const TARGETS = [
   { name: "b2b-home", url: "https://navisavitravel.com/", w: 1440, h: 900 },
-  { name: "eco-home", url: "https://marketing.navisavitravel.com/", w: 1440, h: 900 },
 ];
 
 // Not captured here, because they are hand-trimmed:
 //   app-home.png     a real React Native screenshot, background knocked out
 //   b2b-search.jpg   the AI Search tab, whitespace edited down
 //   b2c-detail.jpg   a video place page, whitespace edited down
+//   eco-home.jpg     the ecosystem site, whitespace edited down
 
 async function clearOverlays(page) {
   await page.evaluate(() => {
