@@ -43,7 +43,11 @@ export default function Roster() {
               <RowBody entry={entry} />
             </div>
           ) : (
-            <a key={entry.name} href={entry.href} className={`${cols} row-link no-underline`}>
+            <a
+              key={entry.name}
+              href={entry.href}
+              className={`${cols} row-link no-underline`}
+            >
               <RowBody entry={entry} />
             </a>
           ),

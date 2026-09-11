@@ -20,9 +20,9 @@ export default async function Craft() {
             the same infrastructure that serves the product.
           </p>
           <p className="m-0 mt-4 max-w-[46ch] text-sm text-muted">
-            Nothing streams until you press play, playback is capped, and the
-            player library only loads on the first click. Bandwidth costs money. A
-            portfolio is not a good enough reason to spend it.
+            Nothing streams until you press play, playback is capped, and the player
+            library only loads on the first click. Bandwidth costs money. A portfolio is
+            not a good enough reason to spend it.
           </p>
           {clips.length === 0 ? (
             <SlotNote>

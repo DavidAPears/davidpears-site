@@ -86,7 +86,11 @@ function buildPoints(real?: { x: number; y: number }[]): FieldPoint[] {
   return points;
 }
 
-export default function ClusterField({ points: real }: { points?: { x: number; y: number }[] }) {
+export default function ClusterField({
+  points: real,
+}: {
+  points?: { x: number; y: number }[];
+}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointsOut = useRef<HTMLSpanElement>(null);
@@ -106,9 +110,8 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
     // Canvas cannot resolve CSS custom properties in `ctx.font`, and next/font
     // hashes the family name, so read the resolved stack off :root once.
     const monoFamily =
-      getComputedStyle(document.documentElement)
-        .getPropertyValue("--font-mono")
-        .trim() || "monospace";
+      getComputedStyle(document.documentElement).getPropertyValue("--font-mono").trim() ||
+      "monospace";
 
     const points = buildPoints(real);
     const live = new Map<string, Cluster>();
@@ -344,7 +347,11 @@ export default function ClusterField({ points: real }: { points?: { x: number; y
   }, [real]);
 
   return (
-    <div ref={wrapRef} className="pointer-events-none absolute inset-0" aria-hidden="true">
+    <div
+      ref={wrapRef}
+      className="pointer-events-none absolute inset-0"
+      aria-hidden="true"
+    >
       <canvas ref={canvasRef} className="block h-full w-full" />
       <div className="hero-veil absolute inset-0" />
 

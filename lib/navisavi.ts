@@ -128,15 +128,14 @@ export async function getPlaylist(
 
     const usable = (json.videos ?? []).filter((v) => v.playbackId);
 
-    return (from === "end" ? usable.slice(-take) : usable.slice(0, take))
-      .map((v) => ({
-        id: String(v.id),
-        title: v.title ?? "Untitled",
-        poster: `https://image.mux.com/${v.playbackId}/thumbnail.jpg?width=640&fit_mode=preserve`,
-        stream: `https://stream.mux.com/${v.playbackId}.m3u8?max_resolution=360p`,
-        seconds: typeof v.duration === "number" ? v.duration : null,
-        place: v.location?.name ?? null,
-      }));
+    return (from === "end" ? usable.slice(-take) : usable.slice(0, take)).map((v) => ({
+      id: String(v.id),
+      title: v.title ?? "Untitled",
+      poster: `https://image.mux.com/${v.playbackId}/thumbnail.jpg?width=640&fit_mode=preserve`,
+      stream: `https://stream.mux.com/${v.playbackId}.m3u8?max_resolution=360p`,
+      seconds: typeof v.duration === "number" ? v.duration : null,
+      place: v.location?.name ?? null,
+    }));
   } catch {
     return [];
   }

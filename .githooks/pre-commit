@@ -1,11 +1,21 @@
 #!/bin/sh
-# Blocks two ways a secret reaches the repo: committing an env file at all, and
-# pasting a key into ordinary source. Bypassing this with --no-verify on a file
-# that holds a real credential means rewriting history afterwards, so don't.
+# Runs before every commit. Order matters: secrets first, because a leaked key
+# is the only failure here that cannot be undone by a follow-up commit.
+#
+# Enable in a fresh clone with:  git config core.hooksPath .githooks
+# Skip in an emergency with:     git commit --no-verify
+
+set -e
+
+staged() {
+  git diff --cached --name-only --diff-filter=ACM
+}
+
+# --- 1. secrets -------------------------------------------------------------
 
 fail=0
 
-env_staged=$(git diff --cached --name-only --diff-filter=ACM | grep -E '(^|/)\.env' | grep -v '\.env\.example$')
+env_staged=$(staged | grep -E '(^|/)\.env' | grep -v '\.env\.example$' || true)
 if [ -n "$env_staged" ]; then
   echo "BLOCKED: env file staged for commit:"
   echo "$env_staged" | sed 's/^/  /'
@@ -13,12 +23,10 @@ if [ -n "$env_staged" ]; then
   fail=1
 fi
 
-# Look for a key pasted into source. Matches an assignment to something named
-# key/secret/token whose value is long enough to be real.
 leak=$(git diff --cached --diff-filter=ACM -U0 \
   | grep -E '^\+' \
   | grep -vE '^\+\+\+' \
-  | grep -iEn "(api[_-]?key|secret|token|password)[\"']?\s*[:=]\s*[\"']?[A-Za-z0-9_\-]{20,}")
+  | grep -iEn "(api[_-]?key|secret|token|password)[\"']?[[:space:]]*[:=][[:space:]]*[\"']?[A-Za-z0-9_-]{20,}" || true)
 if [ -n "$leak" ]; then
   echo "BLOCKED: this looks like a credential in source:"
   echo "$leak" | cut -c1-120 | sed 's/^/  /'
@@ -31,3 +39,25 @@ if [ "$fail" -ne 0 ]; then
   echo "Nothing was committed."
   exit 1
 fi
+
+# --- 2. format --------------------------------------------------------------
+
+fmt=$(staged | grep -E '\.(ts|tsx|js|mjs|css|json|md)$' || true)
+if [ -n "$fmt" ]; then
+  echo "→ prettier"
+  echo "$fmt" | xargs npx prettier --write --ignore-unknown --log-level warn
+  # Re-stage anything prettier tidied, so the commit matches what is on disk.
+  echo "$fmt" | xargs git add
+fi
+
+# --- 3. lint ----------------------------------------------------------------
+
+echo "→ eslint"
+npx eslint . --max-warnings 0
+
+# --- 4. types ---------------------------------------------------------------
+
+echo "→ tsc"
+npx tsc --noEmit
+
+echo "✓ ready to commit"

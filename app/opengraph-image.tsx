@@ -42,9 +42,7 @@ async function archivo() {
       { headers: { "User-Agent": "Mozilla/5.0" } },
     ).then((r) => r.text());
 
-    const url = css.match(
-      /src: url\((.+?)\) format\('(?:opentype|truetype)'\)/,
-    )?.[1];
+    const url = css.match(/src: url\((.+?)\) format\('(?:opentype|truetype)'\)/)?.[1];
     if (!url) return null;
 
     return await fetch(url).then((r) => r.arrayBuffer());

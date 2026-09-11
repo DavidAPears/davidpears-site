@@ -44,7 +44,8 @@ export default function CaseStudy() {
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <span>
-                  <b className="font-semibold text-paper">{item.title}</b>{": "}
+                  <b className="font-semibold text-paper">{item.title}</b>
+                  {": "}
                   {item.detail}
                 </span>
               </li>

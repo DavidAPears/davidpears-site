@@ -106,7 +106,8 @@ export const caseStudy: {
     },
     {
       title: "Native apps",
-      detail: "The React Native iOS and Android clients, from build config to store release.",
+      detail:
+        "The React Native iOS and Android clients, from build config to store release.",
     },
     {
       title: "Leading the team",
@@ -208,7 +209,8 @@ export const roster: RosterEntry[] = [
     years: "2020 - 2022",
     name: "Tangy Market",
     role: "Software Developer · Stockholm",
-    detail: "Mobile UI, APIs and product development for a Swedish music-fintech startup.",
+    detail:
+      "Mobile UI, APIs and product development for a Swedish music-fintech startup.",
     tags: ["React Native"],
   },
   {

@@ -62,7 +62,9 @@ body {
 
 .display-xl {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 118, "wght" 720;
+  font-variation-settings:
+    "wdth" 118,
+    "wght" 720;
   font-size: clamp(2.5rem, 6.4vw, 5.6rem);
   line-height: 0.98;
   letter-spacing: -0.028em;
@@ -71,7 +73,9 @@ body {
 
 .display-lg {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 112, "wght" 660;
+  font-variation-settings:
+    "wdth" 112,
+    "wght" 660;
   font-size: clamp(1.75rem, 3.4vw, 2.75rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -79,14 +83,18 @@ body {
 
 .display-sm {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 106, "wght" 620;
+  font-variation-settings:
+    "wdth" 106,
+    "wght" 620;
   font-size: 1.25rem;
   letter-spacing: -0.01em;
 }
 
 .display-slate {
   font-family: var(--font-display);
-  font-variation-settings: "wdth" 100, "wght" 560;
+  font-variation-settings:
+    "wdth" 100,
+    "wght" 560;
   font-size: 1rem;
   line-height: 1.35;
   letter-spacing: -0.005em;
@@ -173,57 +181,6 @@ body {
 }
 .rule-b {
   border-bottom: var(--rule);
-}
-.rule-r {
-  border-right: var(--rule);
-}
-
-/* ---------- device frames ---------- */
-
-.tile {
-  aspect-ratio: 16 / 10;
-  border-radius: 4px;
-  position: relative;
-  overflow: hidden;
-  background: var(--color-ground-3);
-}
-
-.tile::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.5;
-  background: var(--tile-wash, linear-gradient(135deg, #22304a, #624ff7));
-}
-
-.tile > span {
-  position: absolute;
-  z-index: 2;
-  left: 0.35rem;
-  bottom: 0.3rem;
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.06em;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.reel {
-  aspect-ratio: 9 / 14;
-  border-radius: 6px;
-  background: linear-gradient(160deg, #1b3a4b, #0a0f16 70%);
-  position: relative;
-}
-
-.reel::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--color-signal) 85%, transparent);
 }
 
 /* ---------- hero ---------- */

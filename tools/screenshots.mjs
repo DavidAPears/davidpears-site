@@ -157,11 +157,17 @@ for (const t of TARGETS) {
     await page.screenshot({ path: raw });
 
     execFileSync("sips", [
-      "-Z", "1900",
-      "-s", "format", "jpeg",
-      "-s", "formatOptions", "82",
+      "-Z",
+      "1900",
+      "-s",
+      "format",
+      "jpeg",
+      "-s",
+      "formatOptions",
+      "82",
       raw,
-      "--out", path.join(OUT, `${t.name}.jpg`),
+      "--out",
+      path.join(OUT, `${t.name}.jpg`),
     ]);
 
     console.log(`${t.name} -> .screenshots-raw/${t.name}.jpg`);
