@@ -61,10 +61,9 @@ export default function CaseStudy() {
         <div>
           <DeviceRig />
           <SlotNote>
-            Placeholder frames. These become your real screen grabs &mdash; the consumer
-            discovery grid, the clustered map, a video detail page, checkout, the app
-            home &mdash; ideally exported through Rotato or Device Frames so they read as
-            shipped product.
+            More app screens would earn their place here &mdash; the map, a video detail
+            page, the booking step. One more capture each and this becomes a proper
+            gallery.
           </SlotNote>
         </div>
       </div>

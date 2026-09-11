@@ -34,7 +34,7 @@ Anything unfinished renders as a visible amber **Slot** rather than a silent pla
 
 - [ ] **CV PDF** — drop it at `public/cv/david-pears-cv.pdf`. The old site linked to read.cv, which shut down on 16 May 2025, so that link is dead.
 - [x] **Screen grabs** — real captures of the three live sites, in `public/images/work/`. Regenerate with `node tools/screenshots.mjs` (drives the installed Chrome via puppeteer-core; declines cookie banners and hides promo overlays so captures show the product, not the campaign).
-- [ ] **App screens** — the handset currently shows the consumer site at phone width, not the React Native app. Real device or simulator screenshots would be better.
+- [x] **App screens** — a real iOS app capture sits in `public/images/work/app-home.png`, background knocked out. More screens (map, video detail, booking) would make it a gallery.
 - [ ] **Craft clips** — three tiles waiting on short loops.
 - [ ] **Fanbased** — the one roster row still pending; it has a repo but is not on the CV.
 - [ ] **Email address** — `links` in `content/site.ts` has a placeholder; decide which address this site uses.

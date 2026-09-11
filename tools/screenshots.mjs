@@ -28,8 +28,10 @@ const TARGETS = [
   { name: "b2b-search", url: "https://navisavitravel.com/search", w: 1440, h: 900 },
   { name: "b2c-home", url: "https://navi-savi.com/", w: 1440, h: 900 },
   { name: "eco-home", url: "https://marketing.navisavitravel.com/", w: 1440, h: 900 },
-  { name: "b2c-mobile", url: "https://navi-savi.com/", w: 414, h: 896, mobile: true },
 ];
+
+// The phone shot is not captured here — public/images/work/app-home.png is a
+// real React Native app screenshot with its background knocked out.
 
 async function clearOverlays(page) {
   await page.evaluate(() => {
@@ -65,6 +67,14 @@ async function clearOverlays(page) {
       const r = el.getBoundingClientRect();
       const isHeader = r.top <= 4 && r.height < vh * 0.16;
       if (isHeader) continue;
+
+      // Cookie-consent widgets leave a floating badge behind after the banner
+      // is dismissed; it has no place in a portfolio shot.
+      const id = `${el.id} ${el.className}`.toLowerCase();
+      if (/cookie|consent|cky/.test(id)) {
+        el.style.setProperty("display", "none", "important");
+        continue;
+      }
 
       if (r.width > vw * 0.55 && r.height > vh * 0.18) {
         el.style.setProperty("display", "none", "important");
