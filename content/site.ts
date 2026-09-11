@@ -12,8 +12,8 @@ export const profile = {
   name: "David Pears",
   standby: "Currently: Co-founder & CTO at NaviSavi",
   headline: {
-    before: "Technology lead who still writes the ",
-    accent: "front end",
+    before: "Technology lead who still ",
+    accent: "codes",
     after: ".",
   },
   location: "Stockholm, Sweden",
