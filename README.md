@@ -1,79 +1,89 @@
-# davidpears-site
+# davidpears.com
 
-One-page portfolio for David Pears: CTO at NaviSavi.
+Personal site for David Pears, co-founder and CTO at NaviSavi.
 
-Next.js 16 (App Router), TypeScript, Tailwind v4.
+Next.js 16 (App Router), TypeScript, Tailwind v4. One page, no client-side
+routing, no CMS.
 
 ```bash
-npm run dev     # http://localhost:3000
-npm run build   # production build
-npm run lint
+npm install
+npm run dev      # http://localhost:3000
+npm run build
+npm run verify   # format, lint and types
 ```
 
-## Where things live
+## How it is put together
 
-- `content/site.ts`: **all copy and data**. Editing the site should almost never mean editing JSX.
-- `components/`: one component per section, composed in `app/page.tsx`.
-- `components/ClusterField.tsx`: the hero canvas.
-- `app/globals.css`: design tokens in `@theme`, plus the few classes too fiddly for utilities.
+Content is separated from presentation. Every piece of copy, every role and
+every figure lives in [`content/site.ts`](content/site.ts), so editing the site
+almost never means editing a component. Each section is one component in
+[`components/`](components), composed in [`app/page.tsx`](app/page.tsx).
 
-## The design
+Design tokens are defined once in Tailwind's `@theme` block in
+[`app/globals.css`](app/globals.css). The few things too fiddly for utility
+classes, the type scale and the hero veil, sit alongside them as plain CSS.
 
-Committed single-theme dark: a night-map / colour-grading look, painted explicitly rather than swapping on `prefers-color-scheme`.
+## The hero
 
-- **Ground** `#0A0F16`, panels `#111823` / `#161F2B`, graticule `#1E2A38`
-- **Type** warm sand `#EDE7DC`, not white
-- **Data colours** signal pink `#FF0080` (clusters, primary action), aqua `#2AEFE0` (single points), amber `#F0B429` (CV, and unfinished slots)
-- **Typefaces** Archivo at expanded width for display, Instrument Sans for body, Chivo Mono for labels and coordinates
+The hero canvas is not decoration. It plots real coordinates from NaviSavi's
+commercial API onto Natural Earth coastlines, then clusters them the way the
+product's own map search does: points are bucketed into grid cells, each bucket
+draws one bubble at its centroid labelled with its count, and a slow change in
+cell size merges and splits those bubbles over a two minute cycle.
 
-The hero canvas buckets ~145 deterministic points into grid cells and draws one counted bubble per bucket, with cell size driven by a slow breathing zoom, so groups merge and split. Same grouping idea as the supercluster layer behind NaviSavi's map search. Reduced-motion holds one composed frame instead.
+Both the coastlines and the API points go through one shared projection in
+[`lib/projection.ts`](lib/projection.ts), so the dots land on the right
+continents. The land layer is Natural Earth 110m, public domain, simplified to
+101 rings and rounded to a tenth of a degree.
 
-## Still to do
+If the API is unreachable the canvas falls back to a composed scatter, so the
+page never fails because a third party is down.
 
-Anything unfinished renders as a visible amber **Slot** rather than a silent placeholder:
+## Live footage
 
-- [ ] **CV PDF**: drop it at `public/cv/david-pears-cv.pdf`. The old site linked to read.cv, which shut down on 16 May 2025, so that link is dead.
-- [x] **Screen grabs**: real captures of the three live sites, in `public/images/work/`. Regenerate with `node tools/screenshots.mjs` (drives the installed Chrome via puppeteer-core; declines cookie banners and hides promo overlays so captures show the product, not the campaign).
-- [x] **App screens**: a real iOS app capture sits in `public/images/work/app-home.png`, background knocked out. More screens (map, video detail, booking) would make it a gallery.
-- [ ] **Craft clips**: three tiles waiting on short loops.
+The strip in the Craft section streams real clips from the NaviSavi catalogue.
+Bandwidth is metered, so it is deliberate about spending it:
 
-- [ ] **Deploy**: domain is `davidpears.com` (bought 11 Sep 2026) and is already wired into `metadataBase`, `robots.ts`, `sitemap.ts` and the OG card. Still needs a host and DNS. `davidpearsconsulting.com` is the old Webador site and should stay up until this one is live.
+- a still poster and no `<video>` source until someone presses play
+- the HLS player is imported on first play, not on page load
+- 360p, which is enough at that size
+- one clip at a time, stopping when scrolled out of view or when the tab hides
+- playback stops after 25 loops
 
-## Testimonials
+## API access
 
-The three quotes in `content/site.ts` are verbatim from the old site and attributed to named people: Ryan Bromley, Sally Bunnell, Ryan Anglem. They read like opening sentences; if fuller versions exist, paste them in. Do not paraphrase them.
+Server side only. The key is read from `process.env.NAVISAVI_API_KEY` inside
+server components, never with a `NEXT_PUBLIC_` prefix, which would inline it
+into the client bundle. Responses are revalidated daily, so a quiet week costs
+a handful of requests rather than one per visitor.
 
-## Secrets
-
-The NaviSavi commercial API key is **server-side only**. It is read from
-`process.env.NAVISAVI_API_KEY` inside route handlers and server components, so
-it never reaches the browser.
-
-- Local: put it in `.env.local`, which `.gitignore` covers via `.env*`.
-- Production: set it in the host's environment settings (Vercel project ->
-  Settings -> Environment Variables). Never in the repo.
-- **Never prefix it with `NEXT_PUBLIC_`.** That prefix inlines a value into the
-  client bundle, where anyone can read it with View Source.
-- `.env.example` lists the variable names with no values.
+Local values go in `.env.local`, which is git-ignored. Production values go in
+the host's environment settings. [`.env.example`](.env.example) lists the names
+with no values.
 
 ## Checks
 
-A pre-commit hook in `.githooks/` runs, in order:
+A pre-commit hook in [`.githooks/`](.githooks) runs, in order:
 
-1. **Secrets** - blocks staged env files and credentials pasted into source.
-   First, because it is the only failure a later commit cannot undo.
-2. **Prettier** - formats staged files and re-stages them.
-3. **ESLint** - no warnings allowed.
-4. **tsc** - no emit, types must pass.
+1. **Secrets.** Blocks staged env files and credentials pasted into source.
+   First, because it is the only failure here that a later commit cannot undo.
+2. **Prettier.** Formats staged files and re-stages them.
+3. **ESLint.** No warnings allowed.
+4. **tsc.** Types must pass.
 
-It is enabled per clone, so after cloning run:
+Hooks are per clone, so enable them once:
 
 ```bash
 git config core.hooksPath .githooks
 ```
 
-`npm run verify` runs the same format, lint and type checks by hand.
-`git commit --no-verify` skips them, which is for emergencies only.
+## Screenshots
 
-If a key is ever exposed, rotating it at the provider is the fix. Removing the
-commit is not enough, because it has already been distributed.
+The product captures in [`public/images/work`](public/images/work) are
+hand-trimmed. [`tools/screenshots.mjs`](tools/screenshots.mjs) drives the
+installed Chrome through puppeteer-core to regenerate raw versions into
+`.screenshots-raw/`, declining cookie banners and hiding promotional overlays
+so the captures show the product rather than the campaign running that week.
+
+Replacing an image needs a new filename. Overwriting one in place leaves
+`next/image` serving the previously optimised bytes until its cache expires.
