@@ -17,6 +17,8 @@ export const profile = {
     after: ".",
   },
   location: "Stockholm, Sweden",
+  /** Delete this line if the site should not read as actively looking. */
+  availability: "Open to senior front-end and mobile leadership roles.",
 } as const;
 
 export const slate = [
@@ -73,8 +75,8 @@ export const caseStudy: {
   name: "NaviSavi",
   period: "Case study · 2020 to present",
   intro: [
-    "NaviSavi is **video infrastructure for the travel industry**. Travellers now decide where to go by watching video, but travel businesses still run on static photography and fragmented rights. NaviSavi turns authentic traveller footage into structured, rights-cleared, bookable media.",
-    "One catalogue of 250k+ videos across 190+ countries, with **four products built on top of it**: a consumer discovery app, a licensing platform for business, a B2C booking OTA, and a commercial API. I co-founded the company and own the front end across all of it, on web and in React Native.",
+    "I co-founded NaviSavi in 2020 and have **owned its front end ever since**. One catalogue of 250k+ videos across 190+ countries, and four products on top of it that I am responsible for end to end: a consumer discovery app, a licensing platform for business, a B2C booking OTA, and a commercial API.",
+    "The problem is worth stating, because it shaped every decision below. Travellers choose where to go by watching video, while travel businesses still run on static photography and fragmented rights. My job has been to make traveller footage something a brand can **search, licence and book against** in seconds, on web and in React Native, and to build the team that keeps it shipping.",
   ],
   owned: [
     {

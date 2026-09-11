@@ -22,11 +22,15 @@ export default function Hero() {
         </h1>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
-          I&rsquo;m David Pears. I co-founded{" "}
-          <strong className="font-semibold text-paper">NaviSavi</strong>, where traveller
-          video becomes something travel companies can licence, embed and book. I own the
-          front end across all of it: the web products and the React Native apps, over a
-          catalogue of 250k+ videos. Architecture on Monday, pixels on Friday.
+          I&rsquo;m David Pears, a hands-on engineering leader. I co-founded{" "}
+          <strong className="font-semibold text-paper">NaviSavi</strong> in 2020 and have
+          led its front end ever since: four products on one catalogue of 250k+ videos,
+          on web and in React Native, used by TUI, Saudia and Jet2. I set the
+          architecture, lead the team, and still write the code.
+        </p>
+
+        <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] font-semibold text-paper">
+          {profile.availability}
         </p>
 
         <div className="pointer-events-auto flex flex-wrap items-center gap-3">
