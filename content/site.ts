@@ -65,6 +65,20 @@ export const properties = [
 
 type StackChip = { label: string; tone?: "hot" | "cool" };
 
+/**
+ * NaviSavi's recognition, not David's personally, which is how it is labelled
+ * on the page. Verified against Silicon Prairie News, January 2025, and the
+ * company's own marketing site. The two finalist placings and the Traverse
+ * "Industry Person of the Year" are deliberately left out: the first would
+ * dilute the wins, the second is not his award.
+ */
+export const recognition = [
+  { title: "Startup of the Year", event: "World Aviation Festival", year: "2024" },
+  { title: "Startup of the Year", event: "Touristech Startup Fest", year: "2024" },
+  { title: "Innovation Pitch, winner", event: "Travel Massive London", year: "2024" },
+  { title: "Techstars", event: "Build in Tulsa accelerator", year: "2023" },
+];
+
 export const caseStudy: {
   name: string;
   period: string;
@@ -234,8 +248,8 @@ export const roster: RosterEntry[] = [
     name: "Earlier career",
     role: "Music, media & financial services",
     detail:
-      "A decade across music, television and digital media, including Endemol, Guardian Media Group and artist management. Before that, adjudicating regulated advice disputes at the Financial Ombudsman Service.",
-    tags: ["Rights & licensing", "Digital content"],
+      "Mobile-first entertainment at Endemol, including interactive formats and short-form drama made for phones in 2006 and 2007, then twelve years managing recording artists through my own company. Before that, the Financial Ombudsman Service.",
+    tags: ["Mobile-first video", "Artist management", "Rights & licensing"],
   },
 ];
 

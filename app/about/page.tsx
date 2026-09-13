@@ -67,11 +67,45 @@ export default function About() {
                   Before NaviSavi I worked as a mobile developer across sport, fintech and
                   music: streaming features at SolidSport, consumer fintech at LOQBOX, a
                   music fintech startup in Tangy Market, and a rebuild of a React web
-                  platform into a mobile app at Beatchain. Earlier still I spent a decade
-                  in music, television and digital media, including Endemol and Guardian
-                  Media Group, and worked as an adjudicator in pensions and investments at
-                  the Financial Ombudsman Service. That background is why I am comfortable
-                  translating between engineering and the people paying for it.
+                  platform into a mobile app at Beatchain.
+                </p>
+
+                <h2 className="display-sm mt-4 mb-0 text-paper">Before the code</h2>
+
+                <p className="m-0">
+                  I retrained as a software engineer in 2018, at CodeClan in Edinburgh.
+                  Before that I spent about twenty years on the other side of the screen,
+                  in television, digital media and the music business.
+                </p>
+
+                <p className="m-0">
+                  At Endemol I worked on some of the earliest experiments in mobile-first
+                  entertainment. I was part of the team behind{" "}
+                  <em className="text-paper not-italic">Get Close To... The Sugababes</em>
+                  , an interactive reality format shot specifically for phones in 2006,
+                  and part of the creative team on{" "}
+                  <em className="text-paper not-italic">Cell</em>, a twenty part thriller
+                  commissioned by O2 and built around two minute mobile episodes. Both ran
+                  on handsets before the iPhone existed. Short-form video, made for a
+                  phone, with the audience contributing footage. Two decades later I lead
+                  engineering on a platform built from 250,000 of exactly that.
+                </p>
+
+                <p className="m-0">
+                  In between I founded and ran Wing Management, spending twelve years
+                  developing and managing recording artists across labels, publishers,
+                  touring, rights and audience growth. Clients included Kill It Kid, who
+                  signed an EMI publishing deal and were later signed by Seymour Stein to
+                  Sire, part of Warner. I also worked in digital media at Guardian Media
+                  Group, and earlier still as an adjudicator in pensions and investments
+                  at the Financial Ombudsman Service.
+                </p>
+
+                <p className="m-0">
+                  None of that is decoration. Rights, licensing, creators and audiences
+                  are what NaviSavi is made of, and I had spent a career in them before I
+                  wrote a line of production code. It is also why I am comfortable
+                  translating between the engineering and the people paying for it.
                 </p>
 
                 <h2 className="display-sm mt-4 mb-0 text-paper">What I work with</h2>

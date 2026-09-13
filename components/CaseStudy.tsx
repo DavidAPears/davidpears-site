@@ -1,7 +1,7 @@
 import DeviceRig from "@/components/DeviceRig";
 import Properties from "@/components/Properties";
 import { BandHead, Chip } from "@/components/ui";
-import { caseStudy } from "@/content/site";
+import { caseStudy, recognition } from "@/content/site";
 
 /** Renders the single **bold** span the intro paragraphs use. */
 function Emphasised({ text }: { text: string }) {
@@ -56,6 +56,24 @@ export default function CaseStudy() {
             {caseStudy.stack.map((item) => (
               <Chip key={item.label} label={item.label} tone={item.tone} />
             ))}
+          </div>
+
+          <div className="mt-8 rounded-lg border border-graticule bg-ground-2 p-[clamp(1rem,2vw,1.5rem)]">
+            <span className="mono">Recognition for NaviSavi</span>
+            <ul className="m-0 mt-4 flex list-none flex-col gap-3 p-0">
+              {recognition.map((item) => (
+                <li
+                  key={`${item.title}-${item.event}`}
+                  className="flex flex-wrap items-baseline gap-x-2 gap-y-0.5 text-[0.938rem]"
+                >
+                  <span className="font-semibold text-paper">{item.title}</span>
+                  <span className="text-muted">{item.event}</span>
+                  <span className="font-mono text-xs text-signal-soft tabular-nums">
+                    {item.year}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 
