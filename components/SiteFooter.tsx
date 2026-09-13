@@ -9,13 +9,18 @@ export default function SiteFooter() {
       className="gutter flex flex-wrap items-center justify-between gap-x-8 gap-y-4 py-8 pb-12"
     >
       <span className="mono">
-        {profile.name} · {profile.location} ·{" "}
-        <Link href="/about" className="no-underline transition-colors hover:text-paper">
-          About
-        </Link>
+        {profile.name} · {profile.location}
       </span>
 
       <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
+        <Link
+          href="/about"
+          className="mono no-underline transition-colors hover:text-signal-soft"
+        >
+          About
+        </Link>
+        <span className="mono !text-muted-dim">·</span>
+
         {links.map((link, i) => (
           <span key={link.label} className="flex items-center gap-2">
             {i > 0 && <span className="mono !text-muted-dim">·</span>}
