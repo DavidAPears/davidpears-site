@@ -18,14 +18,15 @@ export const profile = {
   },
   location: "Stockholm, Sweden",
   /** Delete this line if the site should not read as actively looking. */
-  availability: "Open to senior front-end and mobile leadership roles.",
+  availability:
+    "Open to senior mobile and front-end roles: hands-on engineering, technical leadership, or fractional CTO work.",
 } as const;
 
 export const slate = [
   { label: "Role", value: ["Co-founder & CTO", "NaviSavi"] },
   { label: "Builds in", value: ["React Native", "React", "TypeScript"] },
   { label: "At scale", value: ["250k+ videos", "190+ countries"] },
-  { label: "Based in", value: ["Stockholm", "7+ yrs commercial"] },
+  { label: "Based in", value: ["Stockholm", "7+ yrs engineering"] },
 ] as const;
 
 /**
@@ -99,6 +100,11 @@ export const caseStudy: {
         "Every public front end over a shared platform API, behind a BFF layer, with typed clients generated from the OpenAPI spec.",
     },
     {
+      title: "Native apps",
+      detail:
+        "The React Native iOS and Android clients, from build config to store release.",
+    },
+    {
       title: "Discovery and search",
       detail:
         "Clustered map browsing with deck.gl and supercluster, plus the taxonomy the consumer product is navigated by, across country, vibe, place type, experience, traveller type and season.",
@@ -117,11 +123,6 @@ export const caseStudy: {
       title: "MOATS and the commercial API",
       detail:
         "The branded hub that turns guest and creator video into approved brand content, and the public API I oversaw the creation of, with proximity, taxonomy and natural-language search, and SDKs in TypeScript, Python and Ruby.",
-    },
-    {
-      title: "Native apps",
-      detail:
-        "The React Native iOS and Android clients, from build config to store release.",
     },
     {
       title: "Leading the team",

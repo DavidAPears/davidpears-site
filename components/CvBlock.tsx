@@ -8,6 +8,16 @@ export default function CvBlock() {
         <div>
           <h2 className="display-lg m-0">The full CV</h2>
           <p className="mt-4 mb-0 max-w-[48ch] text-body">{cv.blurb}</p>
+
+          <p className="mt-8 mb-0 max-w-[48ch] text-body">
+            If any of it is useful to you, the fastest way to reach me is email:{" "}
+            <a
+              href="mailto:davidapears@gmail.com"
+              className="font-semibold text-aqua no-underline hover:underline"
+            >
+              davidapears@gmail.com
+            </a>
+          </p>
         </div>
 
         <div className="flex min-w-[17rem] flex-col gap-4 rounded-lg border border-graticule bg-ground-2 p-6">
