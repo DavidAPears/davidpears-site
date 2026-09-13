@@ -81,31 +81,62 @@ export default function About() {
                 <p className="m-0">
                   At Endemol I worked on some of the earliest experiments in mobile-first
                   entertainment. I was part of the team behind{" "}
-                  <em className="text-paper not-italic">Get Close To... The Sugababes</em>
+                  <a
+                    href="https://www.c21media.net/news/endemol-sweet-on-sugarbabes/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-aqua"
+                  >
+                    Get Close To... The Sugababes
+                  </a>
                   , an interactive reality format shot specifically for phones in 2006,
                   and part of the creative team on{" "}
-                  <em className="text-paper not-italic">Cell</em>, a twenty part thriller
-                  commissioned by O2 and built around two minute mobile episodes. Both ran
-                  on handsets before the iPhone existed. Short-form video, made for a
-                  phone, with the audience contributing footage. Two decades later I lead
-                  engineering on a platform built from 250,000 of exactly that.
+                  <a
+                    href="https://news.virginmediao2.co.uk/archive/o2-and-endemol-premiere-cell/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-aqua"
+                  >
+                    Cell
+                  </a>
+                  , a twenty part thriller commissioned by O2 and built around two minute
+                  mobile episodes. Both ran on handsets before the iPhone existed.
+                  Short-form video, made for a phone, with the audience contributing
+                  footage. Two decades later I lead engineering on a platform built from
+                  250,000 of exactly that.
                 </p>
 
                 <p className="m-0">
                   In between I founded and ran Wing Management, spending twelve years
                   developing and managing recording artists across labels, publishers,
-                  touring, rights and audience growth. Clients included Kill It Kid, who
-                  signed an EMI publishing deal and were later signed by Seymour Stein to
-                  Sire, part of Warner. I also worked in digital media at Guardian Media
-                  Group, and earlier still as an adjudicator in pensions and investments
-                  at the Financial Ombudsman Service.
+                  touring, rights and audience growth. Clients included{" "}
+                  <a
+                    href="https://www.loudersound.com/features/kill-it-kid-hotshots-of-2014"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-aqua"
+                  >
+                    Kill It Kid
+                  </a>
+                  , who signed an EMI publishing deal and were later signed by{" "}
+                  <a
+                    href="https://www.grammy.com/news/seymour-stein-the-sire-of-punk-and-new-wave/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-aqua"
+                  >
+                    Seymour Stein
+                  </a>{" "}
+                  to Sire, part of Warner. I also worked in digital media at Guardian
+                  Media Group, and earlier still as an adjudicator in pensions and
+                  investments at the Financial Ombudsman Service.
                 </p>
 
                 <p className="m-0">
-                  None of that is decoration. Rights, licensing, creators and audiences
-                  are what NaviSavi is made of, and I had spent a career in them before I
-                  wrote a line of production code. It is also why I am comfortable
-                  translating between the engineering and the people paying for it.
+                  Rights, licensing, creators and audiences are what NaviSavi is made of,
+                  and I spent a career in them before I wrote a line of production code.
+                  It is also why I am comfortable in the room with both the engineers and
+                  the people paying for the work.
                 </p>
 
                 <h2 className="display-sm mt-4 mb-0 text-paper">What I work with</h2>
