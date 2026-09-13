@@ -331,13 +331,30 @@ export default function ClusterField({
       pointer.on = inside && e.pointerType !== "touch";
     };
 
-    const onVisibility = () => {
-      if (document.hidden) {
-        cancelAnimationFrame(raf);
-      } else if (!reduce) {
-        raf = requestAnimationFrame(loop);
-      }
+    let running = !reduce;
+
+    const stop = () => {
+      cancelAnimationFrame(raf);
+      running = false;
     };
+
+    const start = () => {
+      if (reduce || running) return;
+      running = true;
+      raf = requestAnimationFrame(loop);
+    };
+
+    const onVisibility = () => {
+      if (document.hidden) stop();
+      else start();
+    };
+
+    // Scrolled past the hero, the field is doing invisible work at 60fps.
+    const onScreen = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { threshold: 0 },
+    );
+    onScreen.observe(wrap);
 
     window.addEventListener("resize", onResize);
     window.addEventListener("pointermove", onPointerMove);
@@ -348,6 +365,7 @@ export default function ClusterField({
       window.removeEventListener("resize", onResize);
       window.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("visibilitychange", onVisibility);
+      onScreen.disconnect();
     };
   }, [real]);
 

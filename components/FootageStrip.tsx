@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { Clip } from "@/lib/navisavi";
@@ -150,12 +151,12 @@ function ClipTile({
         aria-label={isPlaying ? `Pause ${clip.title}` : `Play ${clip.title}`}
         className="group relative block aspect-[9/14] w-full overflow-hidden rounded-md border border-graticule bg-ground-2 p-0"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={clip.poster}
           alt=""
-          loading="lazy"
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-300 ${
+          fill
+          sizes="(min-width: 1024px) 22vw, (min-width: 640px) 30vw, 45vw"
+          className={`object-cover transition-opacity duration-300 ${
             isPlaying ? "opacity-0" : "opacity-100"
           }`}
         />
