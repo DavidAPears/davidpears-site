@@ -25,11 +25,11 @@ export default async function Hero() {
         </h1>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
-          I&rsquo;m David Pears, a hands-on engineering leader. I co-founded{" "}
-          <strong className="font-semibold text-paper">NaviSavi</strong> in 2020 and have
-          led its technical development: four products on one library of 250k+ UGC videos,
-          on web and in React Native. I set the architecture, lead the team, and still
-          write the frontend code.
+          I&rsquo;m David Pears. I co-founded{" "}
+          <strong className="font-semibold text-paper">NaviSavi</strong> in 2020 and lead
+          its engineering. Four products on one library of 250k+ UGC videos: discovery,
+          licensing, booking, and a commercial API. I own the front end across all of
+          them.
         </p>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] font-semibold text-paper">
