@@ -51,14 +51,18 @@ export default function CaseStudy() {
               </li>
             ))}
           </ul>
+        </div>
 
-          <div className="mt-8 flex flex-wrap gap-[0.4rem]">
+        <div>
+          <DeviceRig />
+
+          <div className="mt-12 flex flex-wrap gap-[0.4rem]">
             {caseStudy.stack.map((item) => (
               <Chip key={item.label} label={item.label} tone={item.tone} />
             ))}
           </div>
 
-          <div className="mt-8 rounded-lg border border-graticule bg-ground-2 p-[clamp(1rem,2vw,1.5rem)]">
+          <div className="mt-6 rounded-lg border border-graticule bg-ground-2 p-[clamp(1rem,2vw,1.5rem)]">
             <span className="mono">Recognition for NaviSavi</span>
             <ul className="m-0 mt-4 flex list-none flex-col gap-3 p-0">
               {recognition.map((item) => (
@@ -75,10 +79,6 @@ export default function CaseStudy() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div>
-          <DeviceRig />
         </div>
       </div>
 
