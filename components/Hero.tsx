@@ -25,12 +25,13 @@ export default async function Hero() {
         </h1>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
-          I&rsquo;m David Pears. I co-founded{" "}
-          <strong className="font-semibold text-paper">NaviSavi</strong> in 2020 and lead
-          its engineering: four products over a library of 250k+ UGC travel videos, on web
-          and in React Native. I am also engineering lead on{" "}
-          <strong className="font-semibold text-paper">Indeez</strong>, a social music app
-          for independent artists. Architecture and the code, on both.
+          I&rsquo;m David Pears, a software engineer based in Stockholm. Seven years in{" "}
+          <strong className="font-semibold text-paper">
+            React Native, React and TypeScript
+          </strong>
+          , most of it at startups and scale-ups, where one person is expected to take a
+          product from the architecture to the screen and to lead the people building it.
+          NaviSavi and Indeez are the case studies below.
         </p>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] font-semibold text-paper">
