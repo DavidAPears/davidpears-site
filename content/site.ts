@@ -296,11 +296,11 @@ export const work: WorkCard[] = [
     role: "Co-founder & CTO",
     period: "2020 to present",
     summary:
-      "Video infrastructure for the travel industry. One library of 250k+ traveller videos, with four products built on top of it.",
+      "Video infrastructure for the travel industry. One ecosystem built on a library of 250k+ UGC traveller videos: consumer discovery, a licensing marketplace for business, a B2C travel OTA, a commercial API, and the mobile apps.",
     points: [
-      "Four front ends over a shared platform API, on web and in React Native",
-      "Clustered map discovery, licensing, checkout, booking and a commercial API",
-      "250k+ videos across 190+ countries",
+      "Every front end over a shared platform API, on web and in React Native",
+      "Clustered map discovery with deck.gl, Stripe licensing, checkout and booking",
+      "250k+ videos across 190+ countries, two Startup of the Year wins",
       "Leading a distributed engineering team",
     ],
     stack: ["React Native", "Next.js", "TypeScript", "deck.gl", "Stripe", "AWS"],
