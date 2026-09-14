@@ -56,6 +56,12 @@ async function archivo() {
 export default async function Image() {
   const font = await archivo();
 
+  // Satori lays this line out as flex items, so anything that must not be
+  // split has to share one item. `tail` is the punctuation glued to the accent.
+  const lead = profile.headline.before.trimEnd();
+  const [tail = "", ...restWords] = profile.headline.after.split(" ");
+  const rest = restWords.join(" ");
+
   return new ImageResponse(
     <div
       style={{
@@ -176,9 +182,14 @@ export default async function Image() {
             fontFamily: font ? "Archivo" : undefined,
           }}
         >
-          {profile.headline.before.trimEnd()}&nbsp;
-          <span style={{ color: SIGNAL }}>{profile.headline.accent}</span>
-          {profile.headline.after}
+          {lead ? `${lead}\u00A0` : null}
+          {/* Accent and the punctuation that follows it are one flex item, so
+              satori cannot break the line between them. */}
+          <div style={{ display: "flex" }}>
+            <span style={{ color: SIGNAL }}>{profile.headline.accent}</span>
+            <span>{tail}</span>
+          </div>
+          {rest ? `\u00A0${rest}` : null}
         </div>
       </div>
 
