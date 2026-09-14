@@ -322,8 +322,9 @@ export const work: WorkCard[] = [
       "Engineering lead, directing two engineers while building the player myself",
     ],
     stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "AWS"],
-    image: null,
-    imageAlt: "",
+    image: "/images/indeez/indeez-card.jpg",
+    imageAlt:
+      "Indeez on three phones: the Discover feed, an artist page, and the music player.",
   },
 ];
 

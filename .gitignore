@@ -42,3 +42,6 @@ next-env.d.ts
 
 # screenshot capture scratch
 /.screenshots-raw
+
+# large source art, keep the compressed versions only
+public/images/**/*-placeholder.png
