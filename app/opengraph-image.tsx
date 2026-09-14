@@ -160,7 +160,7 @@ export default async function Image() {
           letterSpacing: 3,
         }}
       >
-        ENGINEER · STOCKHOLM
+        REACT NATIVE · TYPESCRIPT · STOCKHOLM
       </div>
 
       <div
@@ -187,9 +187,9 @@ export default async function Image() {
               satori cannot break the line between them. */}
           <div style={{ display: "flex" }}>
             <span style={{ color: SIGNAL }}>{profile.headline.accent}</span>
-            <span>{tail}</span>
+            <span>{rest ? `${tail}\u00A0` : tail}</span>
           </div>
-          {rest ? `\u00A0${rest}` : null}
+          {rest || null}
         </div>
       </div>
 
