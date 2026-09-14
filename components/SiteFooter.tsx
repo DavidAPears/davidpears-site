@@ -14,6 +14,20 @@ export default function SiteFooter() {
 
       <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
         <Link
+          href="/work/navisavi"
+          className="mono no-underline transition-colors hover:text-signal-soft"
+        >
+          NaviSavi
+        </Link>
+        <span className="mono !text-muted-dim">·</span>
+        <Link
+          href="/work/indeez"
+          className="mono no-underline transition-colors hover:text-signal-soft"
+        >
+          Indeez
+        </Link>
+        <span className="mono !text-muted-dim">·</span>
+        <Link
           href="/about"
           className="mono no-underline transition-colors hover:text-signal-soft"
         >

@@ -27,9 +27,10 @@ export default async function Hero() {
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
           I&rsquo;m David Pears. I co-founded{" "}
           <strong className="font-semibold text-paper">NaviSavi</strong> in 2020 and lead
-          its engineering. A video ecosystem of four products built on top of a library of
-          250k+ UGC travel videos: discovery, licensing, booking, and a commercial API. I
-          own the front end across all of them.
+          its engineering: four products over a library of 250k+ UGC travel videos, on web
+          and in React Native. I am also engineering lead on{" "}
+          <strong className="font-semibold text-paper">Indeez</strong>, a social music app
+          for independent artists. Architecture and the code, on both.
         </p>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] font-semibold text-paper">
@@ -37,7 +38,7 @@ export default async function Hero() {
         </p>
 
         <div className="pointer-events-auto flex flex-wrap items-center gap-3">
-          <a className="btn btn-primary" href="#navisavi">
+          <a className="btn btn-primary" href="#work">
             See the work
             <ArrowIcon />
           </a>
