@@ -98,6 +98,7 @@ export default function IndeezCaseStudy() {
           </div>
         </section>
 
+        {/* Parked until the live player is ready to embed.
         <section className="band gutter">
           <BandHead title="Live from the player" meta="Later" />
           <div className="flex min-h-[12rem] items-center justify-center rounded-lg border border-dashed border-amber/40 bg-ground-2">
@@ -106,6 +107,7 @@ export default function IndeezCaseStudy() {
             </span>
           </div>
         </section>
+        */}
 
         <section className="band gutter">
           <Link href="/#work" className="btn btn-ghost">

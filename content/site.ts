@@ -303,7 +303,7 @@ export const work: WorkCard[] = [
       "Leading a distributed engineering team from inside the codebase",
     ],
     stack: ["React Native", "Next.js", "TypeScript", "deck.gl", "Stripe", "AWS"],
-    image: "/images/work/navisavi-hero-poster.webp",
+    image: "/images/work/navisavi-hero-poster-16x9.webp",
     imageAlt:
       "NaviSavi across a laptop and two phones: the licensing library search, the consumer app, and travel playlists.",
   },
