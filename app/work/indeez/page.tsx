@@ -4,7 +4,7 @@ import Link from "next/link";
 import AppScreens from "@/components/AppScreens";
 import Masthead from "@/components/Masthead";
 import SiteFooter from "@/components/SiteFooter";
-import { BandHead, Chip, SlotNote } from "@/components/ui";
+import { BandHead, Chip } from "@/components/ui";
 import { indeez } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -76,11 +76,6 @@ export default function IndeezCaseStudy() {
 
             <div>
               <AppScreens />
-
-              <SlotNote>
-                Three of the four are slots. Recordings of the swipe and the player skins,
-                and a still of the feed, all portrait at the same ratio.
-              </SlotNote>
 
               <div className="mt-8 flex flex-wrap gap-[0.4rem]">
                 {indeez.stack.map((item) => (

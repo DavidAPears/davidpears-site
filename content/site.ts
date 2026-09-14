@@ -303,8 +303,9 @@ export const work: WorkCard[] = [
       "Leading a distributed engineering team from inside the codebase",
     ],
     stack: ["React Native", "Next.js", "TypeScript", "deck.gl", "Stripe", "AWS"],
-    image: "/images/work/b2b-ai-search.jpg",
-    imageAlt: "The NaviSavi licensing library's search page.",
+    image: "/images/work/navisavi-hero-poster.webp",
+    imageAlt:
+      "NaviSavi across a laptop and two phones: the licensing library search, the consumer app, and travel playlists.",
   },
   {
     slug: "indeez",
@@ -321,9 +322,9 @@ export const work: WorkCard[] = [
       "Engineering lead, directing two engineers and building the player",
     ],
     stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "AWS"],
-    image: "/images/indeez/indeez-card.jpg",
+    image: "/images/indeez/indeez-hero-poster.webp",
     imageAlt:
-      "Indeez on three phones: the Discover feed, an artist page, and the music player.",
+      "Indeez on three phones: the discovery feed, an artist page, and a record label page.",
   },
 ];
 
@@ -408,15 +409,33 @@ export type AppScreen = {
   src: string | null;
   kind: "image" | "video";
   caption: string;
+  /** Shown before a recording loads, and instead of it under reduced motion. */
+  poster?: string;
 };
 
 export const indeezScreens: AppScreen[] = [
   {
-    src: "/images/indeez/Indeez-placeholder-screenshot.jpeg",
-    kind: "image",
-    caption: "An artist page, personalised",
+    src: "/images/indeez/profile.mp4",
+    poster: "/images/indeez/profile-poster.jpg",
+    kind: "video",
+    caption: "A profile, personalised",
   },
-  { src: null, kind: "video", caption: "Swipe discovery" },
-  { src: null, kind: "video", caption: "Player skins" },
-  { src: null, kind: "image", caption: "The feed" },
+  {
+    src: "/images/indeez/swipe.mp4",
+    poster: "/images/indeez/swipe-poster.jpg",
+    kind: "video",
+    caption: "Swipe discovery",
+  },
+  {
+    src: "/images/indeez/skins.mp4",
+    poster: "/images/indeez/skins-poster.jpg",
+    kind: "video",
+    caption: "Player skins",
+  },
+  {
+    src: "/images/indeez/feed.mp4",
+    poster: "/images/indeez/feed-poster.jpg",
+    kind: "video",
+    caption: "The feed",
+  },
 ];

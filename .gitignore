@@ -45,3 +45,6 @@ next-env.d.ts
 
 # large source art, keep the compressed versions only
 public/images/**/*-placeholder.png
+
+# original screen recordings: tens of MB each, compressed copies ship instead
+/media-source
