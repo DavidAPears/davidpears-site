@@ -127,7 +127,7 @@ export const caseStudy: {
     {
       title: "Leading the team",
       detail:
-        "A distributed engineering team, while staying hands-on with architecture, code review and production delivery.",
+        "A distributed engineering team, alongside the architecture, code review and production delivery.",
     },
   ],
   stack: [
@@ -376,7 +376,7 @@ export const indeez = {
     {
       title: "Leading the engineering",
       detail:
-        "Setting the architecture and directing two engineers, one on the front end and one on the backend, while building the player and the identity layer myself.",
+        "Setting the architecture and directing two engineers, one on the front end and one on the backend, while building the player and the identity layer.",
     },
   ],
   /** The decision the whole product turns on, and the strongest thing on the page. */

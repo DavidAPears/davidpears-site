@@ -174,8 +174,8 @@ export default async function Image() {
             fontFamily: font ? "Archivo" : undefined,
           }}
         >
-          Technology lead who still writes the&nbsp;
-          <span style={{ color: SIGNAL }}>front end</span>.
+          Technology lead who still&nbsp;
+          <span style={{ color: SIGNAL }}>codes</span>.
         </div>
       </div>
 
