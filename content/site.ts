@@ -11,8 +11,8 @@
 export const profile = {
   name: "David Pears",
   headline: {
-    before: "Technology lead who still ",
-    accent: "codes",
+    before: "Engineer, architect, ",
+    accent: "technology lead",
     after: ".",
   },
   location: "Stockholm, Sweden",

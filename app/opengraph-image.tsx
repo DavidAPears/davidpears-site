@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+import { profile } from "@/content/site";
+
 export const alt = "David Pears, CTO at NaviSavi";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -174,8 +176,9 @@ export default async function Image() {
             fontFamily: font ? "Archivo" : undefined,
           }}
         >
-          Technology lead who still&nbsp;
-          <span style={{ color: SIGNAL }}>codes</span>.
+          {profile.headline.before.trimEnd()}&nbsp;
+          <span style={{ color: SIGNAL }}>{profile.headline.accent}</span>
+          {profile.headline.after}
         </div>
       </div>
 
