@@ -10,7 +10,6 @@
 
 export const profile = {
   name: "David Pears",
-  standby: "Currently: Co-founder & CTO at NaviSavi",
   headline: {
     before: "Technology lead who still ",
     accent: "codes",
@@ -23,7 +22,7 @@ export const profile = {
 } as const;
 
 export const slate = [
-  { label: "Role", value: ["Co-founder & CTO", "NaviSavi"] },
+  { label: "Current role", value: ["Co-founder & CTO", "NaviSavi"] },
   { label: "Builds in", value: ["React Native", "React", "TypeScript"] },
   { label: "At scale", value: ["250k+ videos", "190+ countries"] },
   { label: "Based in", value: ["Stockholm", "7+ yrs engineering"] },

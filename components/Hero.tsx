@@ -13,11 +13,6 @@ export default async function Hero() {
       {/* Sized to what it holds, not to the viewport, so the next section stays
           visible in the first frame. */}
       <div className="gutter pointer-events-none relative z-10 max-w-[78rem] pt-[clamp(4rem,9vh,7rem)] pb-[clamp(3rem,6vh,4.5rem)]">
-        <div className="mb-7 flex items-center gap-[0.6rem]">
-          <span className="ping block size-1.5 rounded-full bg-aqua" />
-          <span className="mono">{profile.standby}</span>
-        </div>
-
         <h1 className="display-xl m-0 mb-6 max-w-[21ch]">
           {profile.headline.before}
           <em className="text-signal not-italic">{profile.headline.accent}</em>
@@ -25,13 +20,12 @@ export default async function Hero() {
         </h1>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] text-body">
-          I&rsquo;m David Pears, a software engineer based in Stockholm. Seven years in{" "}
+          I&rsquo;m David Pears, a software engineer based in Stockholm. Seven years of{" "}
           <strong className="font-semibold text-paper">
             React Native, React and TypeScript
           </strong>
-          , most of it at startups and scale-ups, where one person is expected to take a
-          product from the architecture to the screen and to lead the people building it.
-          NaviSavi and Indeez are the case studies below.
+          , most of it at startups and scale-ups, taking a product from architecture to
+          the screen and leading the people building it. Case studies below.
         </p>
 
         <p className="m-0 mb-9 max-w-[46ch] text-[clamp(1rem,1.25vw,1.125rem)] font-semibold text-paper">

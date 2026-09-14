@@ -216,22 +216,6 @@ body {
   }
 }
 
-@keyframes ping {
-  0% {
-    box-shadow: 0 0 0 0 rgba(42, 239, 224, 0.45);
-  }
-  70% {
-    box-shadow: 0 0 0 9px rgba(42, 239, 224, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(42, 239, 224, 0);
-  }
-}
-
-.ping {
-  animation: ping 2.6s ease-out infinite;
-}
-
 /* ---------- rows ---------- */
 
 .row-link {
@@ -246,9 +230,6 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ping {
-    animation: none;
-  }
   *,
   *::before,
   *::after {
