@@ -9,9 +9,13 @@ import type { NextConfig } from "next";
  * the only third party allowed is Mux, which serves the video stills and the
  * HLS streams.
  */
+// React needs eval() in development for hot reload and stack traces, and never
+// in production. Granting it only in dev keeps the shipped policy strict.
+const isDev = process.env.NODE_ENV === "development";
+
 const csp = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://image.mux.com",
   // Mux redirects HLS manifests and segments to regional edge hosts under
