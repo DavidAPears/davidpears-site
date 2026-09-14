@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 import { profile } from "@/content/site";
 
-export const alt = "David Pears, CTO at NaviSavi";
+export const alt = "David Pears, engineer, architect and technology lead, Stockholm";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -154,7 +154,7 @@ export default async function Image() {
           letterSpacing: 3,
         }}
       >
-        CTO · NAVISAVI
+        ENGINEER · STOCKHOLM
       </div>
 
       <div
