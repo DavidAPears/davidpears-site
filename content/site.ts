@@ -338,8 +338,11 @@ export const indeez = {
   period: "Case study · 2026 to present",
   status: "Internal TestFlight. App Store submission is weeks away.",
   intro: [
-    "Since 2024 the major streaming platforms have set a floor before a track earns anything at all. On the biggest of them it is a thousand streams in a rolling twelve months, plus a minimum number of unique listeners they decline to publish. Most unsigned artists never cross it, and they are stuck on platforms where they cannot talk to the people listening anyway.",
-    "Indeez is **Bandcamp meets MySpace**. Streaming here is the shop window rather than the business: an artist puts music up to be found, and earns from tickets, vinyl, cassettes and merch. The social half is MySpace on purpose. I managed recording artists through that era and watched what owning your own page did for a band, so profiles are personalised the way MySpace allowed, the feed lets people choose between the algorithm and only the people they actually follow, and discovery runs on a swipe. The point of all of it is to get people off their phones and into rooms where music is happening.",
+    "In 2024, the world's largest DSP introduced a floor before a track earns recording royalties: a thousand streams in a rolling twelve months, plus a minimum number of unique listeners it does not disclose. For emerging and unsigned artists, that exposes a bigger problem with streaming. Music can reach people without creating much income for the artist, and the platforms offer little connection between artists and the people actually listening.",
+    "Indeez takes a different approach. It combines the direct-to-fan economics of independent music marketplaces with the personality and community of mid-2000s social media.",
+    "Streaming is the shop window rather than the business. Artists put music up to be discovered, then earn through the things that have real value around it: tickets, vinyl, cassettes and merch.",
+    "The social side deliberately borrows something the modern internet largely lost. I managed recording artists during the first wave of artist-led social media and saw what happened when a band could actually own its corner of the internet. On Indeez, profiles can be genuinely personalised, listeners can choose between algorithmic discovery and a feed made up only of people they follow, and new music can be discovered through a swipe-based player.",
+    "The goal is not more time on the platform. It is to turn discovery into fandom, and ultimately get people off their phones and into rooms where music is happening.",
   ],
   owned: [
     {
@@ -397,7 +400,7 @@ export const indeez = {
     { label: "AWS S3 / Lambda" },
     { label: "Sentry" },
   ],
-  team: "With Bobby Harlow and Kristi LaBarge, and engineers Abhay Gondesi and Xinya Wang.",
+  team: "With engineers Abhay Gondesi and Xinya Wang.",
 };
 
 /**
