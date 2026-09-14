@@ -399,3 +399,24 @@ export const indeez = {
   ],
   team: "With Bobby Harlow and Kristi LaBarge, and engineers Abhay Gondesi and Xinya Wang.",
 };
+
+/**
+ * App screens, all portrait at the same ratio so the strip stays even whether an
+ * item is a still or a recording. `src: null` renders a visible slot.
+ */
+export type AppScreen = {
+  src: string | null;
+  kind: "image" | "video";
+  caption: string;
+};
+
+export const indeezScreens: AppScreen[] = [
+  {
+    src: "/images/indeez/Indeez-placeholder-screenshot.jpeg",
+    kind: "image",
+    caption: "An artist page, personalised",
+  },
+  { src: null, kind: "video", caption: "Swipe discovery" },
+  { src: null, kind: "video", caption: "Player skins" },
+  { src: null, kind: "image", caption: "The feed" },
+];

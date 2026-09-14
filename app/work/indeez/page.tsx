@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import AppScreens from "@/components/AppScreens";
 import Masthead from "@/components/Masthead";
 import SiteFooter from "@/components/SiteFooter";
 import { BandHead, Chip, SlotNote } from "@/components/ui";
@@ -74,11 +75,7 @@ export default function IndeezCaseStudy() {
             </div>
 
             <div>
-              <div className="flex aspect-[4/3] items-center justify-center rounded-lg border border-dashed border-amber/40 bg-ground-2">
-                <span className="mono !text-amber">App screens to come</span>
-              </div>
-
-              <div className="mt-12 flex flex-wrap gap-[0.4rem]">
+              <div className="flex flex-wrap gap-[0.4rem]">
                 {indeez.stack.map((item) => (
                   <Chip key={item.label} label={item.label} tone={item.tone} />
                 ))}
@@ -95,12 +92,15 @@ export default function IndeezCaseStudy() {
               </div>
 
               <p className="mono mt-6 mb-0 !text-amber">{indeez.status}</p>
-
-              <SlotNote>
-                Portrait recordings of the swipe, the player skins, a profile and the
-                feed, plus a still for the landing card.
-              </SlotNote>
             </div>
+          </div>
+
+          <div className="mt-[clamp(2.5rem,5vw,4rem)]">
+            <AppScreens />
+            <SlotNote>
+              Three of the four are still slots. Recordings of the swipe and the player
+              skins, and a still of the feed, all portrait at the same ratio.
+            </SlotNote>
           </div>
         </section>
 
