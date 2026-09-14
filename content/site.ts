@@ -194,7 +194,7 @@ export const roster: RosterEntry[] = [
     detail:
       "Travel video platform: discovery and booking for travellers, licensing and an API for the industry.",
     tags: ["React Native", "Next.js", "TypeScript", "Stripe", "deck.gl"],
-    href: "#navisavi",
+    href: "/work/navisavi",
   },
   {
     years: "2026 - NOW",
@@ -268,3 +268,94 @@ export const links: { label: string; href: string; pending?: boolean }[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/davepears/" },
   { label: "GitHub", href: "https://github.com/DavidAPears" },
 ];
+
+/* ------------------------------------------------------------------ */
+/* Selected work                                                       */
+/* ------------------------------------------------------------------ */
+
+export type WorkCard = {
+  slug: string;
+  name: string;
+  /** What kind of exhibit this is, so the two read as a contrasting pair. */
+  kind: string;
+  role: string;
+  period: string;
+  summary: string;
+  /** Hard evidence, for the reader who never clicks through. */
+  points: string[];
+  stack: string[];
+  image: string | null;
+  imageAlt: string;
+};
+
+export const work: WorkCard[] = [
+  {
+    slug: "navisavi",
+    name: "NaviSavi",
+    kind: "Platform and ecosystem",
+    role: "Co-founder & CTO",
+    period: "2020 to present",
+    summary:
+      "Video infrastructure for the travel industry. One library of 250k+ traveller videos, with four products built on top of it.",
+    points: [
+      "Four front ends over a shared platform API, on web and in React Native",
+      "Clustered map discovery, licensing, checkout, booking and a commercial API",
+      "250k+ videos across 190+ countries",
+      "Leading a distributed engineering team",
+    ],
+    stack: ["React Native", "Next.js", "TypeScript", "deck.gl", "Stripe", "AWS"],
+    image: "/images/work/b2b-ai-search.jpg",
+    imageAlt: "The NaviSavi licensing library's search page.",
+  },
+  {
+    slug: "indeez",
+    name: "Indeez",
+    kind: "Mobile app",
+    role: "Senior React Native Engineer",
+    period: "2026 to present",
+    summary:
+      "A social music app built from nothing: fans, artists, venues and record stores in one place, around a swipe-based discovery player.",
+    points: [
+      "Built from the ground up, current React Native and Expo",
+      "Swipe deck discovery over a live audio player",
+      "Supabase and PostgreSQL, edge functions, AWS audio infrastructure",
+      "Component architecture and customisable profile theming",
+    ],
+    stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "AWS"],
+    image: null,
+    imageAlt: "",
+  },
+];
+
+/**
+ * The Indeez case study. Deliberately a skeleton: the headings are the same as
+ * NaviSavi's so the two pages read as a set, and every gap is a visible slot
+ * rather than invented detail. Fill from David's own account and the screen
+ * recordings.
+ */
+export const indeez = {
+  name: "Indeez",
+  period: "Case study · 2026 to present",
+  intro: [
+    "**Placeholder.** The problem Indeez solves, in David's words: what is broken about music discovery for grassroots artists, and who loses out because of it.",
+    "**Placeholder.** Why that is an engineering problem, and what makes a swipe deck over a live audio player harder than it looks.",
+  ],
+  owned: [
+    {
+      title: "Discovery player",
+      detail: "Placeholder: the swipe deck and how it feels.",
+    },
+    { title: "Audio", detail: "Placeholder: playback, preloading, gapless transitions." },
+    { title: "Profiles and theming", detail: "Placeholder: multi-profile accounts." },
+    { title: "Social", detail: "Placeholder: feeds and the shared space." },
+    { title: "Data and backend", detail: "Placeholder: Supabase, edge functions, AWS." },
+  ],
+  stack: [
+    { label: "React Native", tone: "hot" as const },
+    { label: "Expo", tone: "hot" as const },
+    { label: "TypeScript" },
+    { label: "Supabase", tone: "cool" as const },
+    { label: "PostgreSQL", tone: "cool" as const },
+    { label: "AWS" },
+  ],
+};

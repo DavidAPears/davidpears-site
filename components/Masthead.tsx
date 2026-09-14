@@ -3,8 +3,7 @@ import Link from "next/link";
 
 // Absolute, so the nav still works from /about.
 const NAV = [
-  { label: "Work", href: "/#navisavi" },
-  { label: "Catalogue", href: "/#craft" },
+  { label: "Work", href: "/#work" },
   { label: "Praise", href: "/#praise" },
   { label: "History", href: "/#roster" },
   { label: "Contact", href: "/#contact" },
