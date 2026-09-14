@@ -311,7 +311,7 @@ export const work: WorkCard[] = [
     slug: "indeez",
     name: "Indeez",
     kind: "Mobile app",
-    role: "Engineering lead",
+    role: "React Native engineer & engineering lead",
     period: "2026 to present",
     summary:
       "Putting the social layer back into music, for the grassroots end of the industry that streaming abandoned. MySpace-style personalisation, swipe discovery, one login across artist, label, venue and store identities.",
@@ -338,8 +338,8 @@ export const indeez = {
   period: "Case study · 2026 to present",
   status: "Internal TestFlight. App Store submission is weeks away.",
   intro: [
-    "Streaming took the social out of music. Spotify does not pay an artist at all below roughly a thousand streams a month, an artist cannot talk to the people listening, and a listener cannot reach the artist. Music is one of the most social things people do, carried on platforms with no social layer at all.",
-    "Indeez is built for the grassroots end of that: independent artists, the fans who find them, and the venues and record stores around them. The reference is **MySpace**, deliberately. I managed recording artists through that era and watched what owning your own page did for a band, so profiles here are personalised the way MySpace allowed, the feed lets people choose between the algorithm and only the people they actually follow, and discovery runs on a swipe.",
+    "Since 2024 the major streaming platforms have set a floor before a track earns anything at all. On the biggest of them it is a thousand streams in a rolling twelve months, plus a minimum number of unique listeners they decline to publish. Most unsigned artists never cross it, and they are stuck on platforms where they cannot talk to the people listening anyway.",
+    "Indeez is **Bandcamp meets MySpace**. Streaming here is the shop window rather than the business: an artist puts music up to be found, and earns from tickets, vinyl, cassettes and merch. The social half is MySpace on purpose. I managed recording artists through that era and watched what owning your own page did for a band, so profiles are personalised the way MySpace allowed, the feed lets people choose between the algorithm and only the people they actually follow, and discovery runs on a swipe. The point of all of it is to get people off their phones and into rooms where music is happening.",
   ],
   owned: [
     {
@@ -381,8 +381,8 @@ export const indeez = {
   /** The decision the whole product turns on, and the strongest thing on the page. */
   decision: {
     label: "A decision worth naming",
-    title: "The optimisation we refused",
-    body: "Preloading the next track needs its stream URL early. On this platform, resolving a stream URL logs a play. Prefetching would have inflated artists' play counts, on a product whose reason for existing is that artists are paid badly and counted carelessly. So the prefetch resolves nothing it is not about to play, and the play is recorded when audio actually starts.",
+    title: "The optimisation I refused",
+    body: "Preloading the next track needs its stream URL early. On this platform, resolving a stream URL logs a play. Prefetching would have inflated artists' play counts, on a product that exists because artists are paid badly and counted carelessly. So the prefetch resolves nothing it is not about to play, and the play is recorded when audio actually starts.",
   },
   stack: [
     { label: "React Native 0.83", tone: "hot" as const },
