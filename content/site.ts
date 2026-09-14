@@ -311,15 +311,15 @@ export const work: WorkCard[] = [
     slug: "indeez",
     name: "Indeez",
     kind: "Mobile app",
-    role: "Senior React Native Engineer",
+    role: "Engineering lead",
     period: "2026 to present",
     summary:
-      "A social music app built from nothing: fans, artists, venues and record stores in one place, around a swipe-based discovery player.",
+      "Putting the social layer back into music, for the grassroots end of the industry that streaming abandoned. MySpace-style personalisation, swipe discovery, one login across artist, label, venue and store identities.",
     points: [
-      "Built from the ground up, current React Native and Expo",
-      "Swipe deck discovery over a live audio player",
-      "Supabase and PostgreSQL, edge functions, AWS audio infrastructure",
-      "Component architecture and customisable profile theming",
+      "Swipe discovery that has to make sound instantly, solved with two warm audio decks",
+      "Player skins over one shared controller: default, vinyl, animated cassette",
+      "One login, many identities, with roles and invitations",
+      "Engineering lead, directing two engineers while building the player myself",
     ],
     stack: ["React Native", "Expo", "TypeScript", "Supabase", "PostgreSQL", "AWS"],
     image: null,
@@ -336,26 +336,66 @@ export const work: WorkCard[] = [
 export const indeez = {
   name: "Indeez",
   period: "Case study · 2026 to present",
+  status: "Internal TestFlight. App Store submission is weeks away.",
   intro: [
-    "**Placeholder.** The problem Indeez solves, in David's words: what is broken about music discovery for grassroots artists, and who loses out because of it.",
-    "**Placeholder.** Why that is an engineering problem, and what makes a swipe deck over a live audio player harder than it looks.",
+    "Streaming took the social out of music. Spotify does not pay an artist at all below roughly a thousand streams a month, an artist cannot talk to the people listening, and a listener cannot reach the artist. Music is one of the most social things people do, carried on platforms with no social layer at all.",
+    "Indeez is built for the grassroots end of that: independent artists, the fans who find them, and the venues and record stores around them. The reference is **MySpace**, deliberately. I managed recording artists through that era and watched what owning your own page did for a band, so profiles here are personalised the way MySpace allowed, the feed lets people choose between the algorithm and only the people they actually follow, and discovery runs on a swipe.",
   ],
   owned: [
     {
-      title: "Discovery player",
-      detail: "Placeholder: the swipe deck and how it feels.",
+      title: "The discovery player",
+      detail:
+        "Built first as a standalone test app, so the hard part could be solved away from the main codebase. The requirement is simple to state and unforgiving: a swipe has to produce sound immediately, which means never loading audio on the swipe itself.",
     },
-    { title: "Audio", detail: "Placeholder: playback, preloading, gapless transitions." },
-    { title: "Profiles and theming", detail: "Placeholder: multi-profile accounts." },
-    { title: "Social", detail: "Placeholder: feeds and the shared space." },
-    { title: "Data and backend", detail: "Placeholder: Supabase, edge functions, AWS." },
+    {
+      title: "Two warm decks",
+      detail:
+        "Two audio engines run at once. The active one is audible; the other already holds the next track loaded at volume zero, so advancing is a role swap rather than a load. Instrumented in development to measure swipe committed to first audible frame.",
+    },
+    {
+      title: "Races, not just happy paths",
+      detail:
+        "Every load carries a token. A slow resolve that returns after the listener has already swiped on is discarded rather than interrupting whatever is playing now. The same guard covers lock screen artwork.",
+    },
+    {
+      title: "Player skins",
+      detail:
+        "A skin is a look over one shared controller: a default, a vinyl deck, and an animated cassette transport. Chosen and remembered per profile, which keeps the personalisation idea in the player rather than only the profile page.",
+    },
+    {
+      title: "One login, many identities",
+      detail:
+        "A personal profile plus artist, label, venue and record store Pages, each with owner, admin, editor and viewer roles and invitations. Switching identity is an app-wide lens. I architected the model, my team delivered the backend, and I built the front end around it.",
+    },
+    {
+      title: "A feed the listener controls",
+      detail:
+        "People choose whether the main feed shows algorithmic recommendations or only the people they follow who follow them back. Privacy, blocking and reporting are built to current social norms rather than retrofitted.",
+    },
+    {
+      title: "Leading the engineering",
+      detail:
+        "Setting the architecture and directing two engineers, one on the front end and one on the backend, while building the player and the identity layer myself.",
+    },
   ],
+  /** The decision the whole product turns on, and the strongest thing on the page. */
+  decision: {
+    label: "A decision worth naming",
+    title: "The optimisation we refused",
+    body: "Preloading the next track needs its stream URL early. On this platform, resolving a stream URL logs a play. Prefetching would have inflated artists' play counts, on a product whose reason for existing is that artists are paid badly and counted carelessly. So the prefetch resolves nothing it is not about to play, and the play is recorded when audio actually starts.",
+  },
   stack: [
-    { label: "React Native", tone: "hot" as const },
-    { label: "Expo", tone: "hot" as const },
+    { label: "React Native 0.83", tone: "hot" as const },
+    { label: "Expo SDK 55", tone: "hot" as const },
     { label: "TypeScript" },
-    { label: "Supabase", tone: "cool" as const },
-    { label: "PostgreSQL", tone: "cool" as const },
-    { label: "AWS" },
+    { label: "Reanimated 4", tone: "cool" as const },
+    { label: "Gesture Handler", tone: "cool" as const },
+    { label: "expo-audio" },
+    { label: "Zustand" },
+    { label: "Supabase" },
+    { label: "PostgreSQL" },
+    { label: "AWS S3 / Lambda" },
+    { label: "Sentry" },
   ],
+  team: "With Bobby Harlow and Kristi LaBarge, and engineers Abhay Gondesi and Xinya Wang.",
 };
