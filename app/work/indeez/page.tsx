@@ -75,7 +75,14 @@ export default function IndeezCaseStudy() {
             </div>
 
             <div>
-              <div className="flex flex-wrap gap-[0.4rem]">
+              <AppScreens />
+
+              <SlotNote>
+                Three of the four are slots. Recordings of the swipe and the player skins,
+                and a still of the feed, all portrait at the same ratio.
+              </SlotNote>
+
+              <div className="mt-8 flex flex-wrap gap-[0.4rem]">
                 {indeez.stack.map((item) => (
                   <Chip key={item.label} label={item.label} tone={item.tone} />
                 ))}
@@ -93,14 +100,6 @@ export default function IndeezCaseStudy() {
 
               <p className="mono mt-6 mb-0 !text-amber">{indeez.status}</p>
             </div>
-          </div>
-
-          <div className="mt-[clamp(2.5rem,5vw,4rem)]">
-            <AppScreens />
-            <SlotNote>
-              Three of the four are still slots. Recordings of the swipe and the player
-              skins, and a still of the feed, all portrait at the same ratio.
-            </SlotNote>
           </div>
         </section>
 

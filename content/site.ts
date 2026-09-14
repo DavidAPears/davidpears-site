@@ -338,11 +338,8 @@ export const indeez = {
   period: "Case study · 2026 to present",
   status: "Internal TestFlight. App Store submission is weeks away.",
   intro: [
-    "In 2024, the world's largest DSP introduced a floor before a track earns recording royalties: a thousand streams in a rolling twelve months, plus a minimum number of unique listeners it does not disclose. For emerging and unsigned artists, that exposes a bigger problem with streaming. Music can reach people without creating much income for the artist, and the platforms offer little connection between artists and the people actually listening.",
-    "Indeez takes a different approach. It combines the direct-to-fan economics of independent music marketplaces with the personality and community of mid-2000s social media.",
-    "Streaming is the shop window rather than the business. Artists put music up to be discovered, then earn through the things that have real value around it: tickets, vinyl, cassettes and merch.",
-    "The social side deliberately borrows something the modern internet largely lost. I managed recording artists during the first wave of artist-led social media and saw what happened when a band could actually own its corner of the internet. On Indeez, profiles can be genuinely personalised, listeners can choose between algorithmic discovery and a feed made up only of people they follow, and new music can be discovered through a swipe-based player.",
-    "The goal is not more time on the platform. It is to turn discovery into fandom, and ultimately get people off their phones and into rooms where music is happening.",
+    "Streaming pays emerging artists almost nothing and gives them no way to reach the people listening. Indeez answers that with the direct-to-fan economics of independent music marketplaces and the personality of mid-2000s social media. Streaming is the shop window rather than the business: artists put music up to be discovered, then earn from tickets, vinyl, cassettes and merch. I managed recording artists during the first wave of artist-led social media, and saw what happened when a band could own its corner of the internet.",
+    "That shape makes specific engineering demands. Discovery is a swipe that has to produce sound immediately, which rules out loading audio at the moment of the swipe. Profiles have to be personalised deeply enough to feel like someone's own page rather than a theme. And one person has to act as themselves, as their band, as the label they help run and as the venue they book, without four logins. The goal is not more time on the platform. It is to turn discovery into fandom, and get people off their phones and into rooms where music is happening.",
   ],
   owned: [
     {
