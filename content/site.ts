@@ -148,6 +148,26 @@ export const caseStudy: {
 };
 
 /**
+ * The lead quote, given its own space above the grid: it is four times the
+ * length of the others, it is the most recent, and it comes from the CEO of a
+ * company where the engagement is current rather than finished.
+ *
+ * Verbatim, American spellings and all. The signature line is dropped only
+ * because the attribution below carries it.
+ */
+export const featuredTestimonial = {
+  paragraphs: [
+    "I\u2019ve had the opportunity to work very closely with David, and he has become an enormously valuable part of our team at Indeez.",
+    "David is one of those rare people who can walk into a complicated situation, quickly understand what needs to happen, and simply start making things better. He is technically excellent, but his value goes well beyond technology. He\u2019s an exceptionally strong communicator, a natural leader, and someone who works comfortably with people at every level of an organization.",
+    "He takes charge without making a production out of taking charge. He motivates people without putting unnecessary pressure on them, communicates extremely well, and has an easy confidence that makes him particularly effective in meetings, with teams, and with clients and partners. My team genuinely enjoys working with him, and I\u2019ve come to rely heavily on his judgment.",
+    "David has also been extraordinarily generous with his time and commitment to Indeez. He\u2019s someone I trust completely, both professionally and personally.",
+    "Whatever the role, if I were building a team and had the opportunity to put David Pears on it, I would.",
+  ],
+  name: "Bobby Harlow",
+  role: "Founder & CEO, Indeez",
+} as const;
+
+/**
  * Verbatim, and attributed to named people. The spaced hyphens and the
  * semicolon are theirs. Never tidy or paraphrase these.
  */
