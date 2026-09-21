@@ -34,6 +34,13 @@ export default function SiteFooter() {
           About
         </Link>
         <span className="mono !text-muted-dim">·</span>
+        <Link
+          href="/freelance"
+          className="mono no-underline transition-colors hover:text-signal-soft"
+        >
+          Freelance
+        </Link>
+        <span className="mono !text-muted-dim">·</span>
 
         {links.map((link, i) => (
           <span key={link.label} className="flex items-center gap-2">

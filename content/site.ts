@@ -269,6 +269,44 @@ export const links: { label: string; href: string; pending?: boolean }[] = [
 ];
 
 /* ------------------------------------------------------------------ */
+/* Freelance                                                           */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Deliberately not linked from the masthead. This page exists to be sent
+ * directly, and to be found from the footer by someone already reading.
+ *
+ * No rate, no availability date and no notice period, all by David's call.
+ * The message is simply that he is available, not when or for how much.
+ */
+export const freelance = {
+  intro: [
+    "I am available for contract engineering and fractional CTO work. If you are building something and need a senior React Native or front-end engineer on it, get in touch.",
+    "Seven years of React Native, React and TypeScript, most of it at startups and scale-ups. Two of those products are written up as case studies on this site, so you can see the work before you call.",
+  ],
+  shapes: [
+    {
+      title: "Contract engineering",
+      detail:
+        "Three months or more, hands on the codebase. A mobile app that needs someone senior on it, a front end to take from architecture to release, or a team that is short an engineer who can do both.",
+    },
+    {
+      title: "Fractional CTO",
+      detail:
+        "Technical direction for a company that needs senior judgement without a full-time hire. Architecture, code review, hiring, and the decisions that are expensive to get wrong later.",
+    },
+  ],
+  practical: [
+    { label: "Based", value: "Stockholm, Sweden" },
+    { label: "Working", value: "Remote, hybrid or onsite. Onsite means Stockholm." },
+    { label: "Minimum", value: "Three months for project work" },
+    { label: "Invoicing", value: "Direct, through my own Swedish sole trader business" },
+    { label: "Rate", value: "On request, once I know the shape of the work" },
+  ],
+  next: "Email me with what you are building and what you need. If I am not the right person for it, I will say so.",
+} as const;
+
+/* ------------------------------------------------------------------ */
 /* Selected work                                                       */
 /* ------------------------------------------------------------------ */
 
