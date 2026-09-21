@@ -165,6 +165,7 @@ export const featuredTestimonial = {
   ],
   name: "Bobby Harlow",
   role: "Founder & CEO, Indeez",
+  country: "USA",
 } as const;
 
 /**

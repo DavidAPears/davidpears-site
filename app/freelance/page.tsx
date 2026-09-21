@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import FeaturedQuote from "@/components/FeaturedQuote";
 import Masthead from "@/components/Masthead";
 import SiteFooter from "@/components/SiteFooter";
 import { ArrowIcon, BandHead, DownloadIcon } from "@/components/ui";
@@ -60,6 +61,11 @@ export default function Freelance() {
               </div>
             ))}
           </dl>
+        </section>
+
+        <section className="band gutter">
+          <BandHead title="What they said" meta="Indeez" />
+          <FeaturedQuote />
         </section>
 
         <section className="band gutter">
