@@ -39,7 +39,7 @@ const GRATICULE = "#1E2A38";
 const LAND_FILL = "#18242F";
 const LAND_EDGE = "#2B3D4F";
 const PAPER = "237,231,220";
-const PINK = "255,0,128";
+const SIGNAL = "57,255,20";
 const AQUA = "42,239,224";
 
 function seeded(seed: number) {
@@ -257,7 +257,7 @@ export default function ClusterField({
       live.forEach((l) => {
         const solo = l.n === 1;
         const hot = l === nearest;
-        const col = solo ? AQUA : PINK;
+        const col = solo ? AQUA : SIGNAL;
 
         ctx.beginPath();
         ctx.arc(l.x, l.y, Math.max(l.r, 0.1), 0, Math.PI * 2);

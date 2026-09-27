@@ -14,7 +14,7 @@ export default function Masthead() {
     <header className="rule-b gutter sticky top-0 z-30 flex items-center justify-between gap-6 bg-ground/[0.78] py-[1.1rem] backdrop-blur-[14px]">
       <Link href="/" className="flex items-center gap-2.5 no-underline">
         <Image
-          src="/brand/dp-wordmark.png"
+          src="/brand/dp-wordmark-green.png"
           alt=""
           width={328}
           height={256}

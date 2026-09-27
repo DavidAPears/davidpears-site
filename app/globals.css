@@ -13,9 +13,9 @@
   --color-muted: #8494a6;
   --color-muted-dim: #5a6878;
 
-  /* NaviSavi's own hues, used here as data colours: pink groups, aqua singles. */
-  --color-signal: #ff0080;
-  --color-signal-soft: #ff4da6;
+  /* Data colours: signal groups, aqua singles. */
+  --color-signal: #39ff14;
+  --color-signal-soft: #74ff5b;
   --color-aqua: #2aefe0;
   --color-amber: #f0b429;
 
@@ -128,11 +128,11 @@ body {
 
 .btn-primary {
   background: var(--color-signal);
-  color: #fff;
+  color: var(--color-ground);
 }
 
 .btn-primary:hover {
-  background: #e60073;
+  background: #32e011;
   transform: translateY(-1px);
 }
 

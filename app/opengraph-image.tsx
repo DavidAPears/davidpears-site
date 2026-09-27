@@ -10,7 +10,7 @@ const GROUND = "#0A0F16";
 const GRATICULE = "#1E2A38";
 const PAPER = "#EDE7DC";
 const MUTED = "#8494A6";
-const SIGNAL = "#FF0080";
+const SIGNAL = "#39FF14";
 const AQUA = "#2AEFE0";
 
 /**
@@ -129,7 +129,7 @@ export default async function Image() {
             height: c.r * 2,
             borderRadius: c.r,
             border: `1px solid ${SIGNAL}`,
-            background: "rgba(255,0,128,0.13)",
+            background: "rgba(57,255,20,0.13)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
