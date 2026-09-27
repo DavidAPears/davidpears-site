@@ -17,6 +17,7 @@
   --color-signal: #39ff14;
   --color-signal-soft: #74ff5b;
   --color-aqua: #2aefe0;
+  /* Amber means one thing: a deliberate gap, not an oversight. Never a CTA. */
   --color-amber: #f0b429;
 
   --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
@@ -138,12 +139,12 @@ body {
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-amber);
-  border-color: color-mix(in srgb, var(--color-amber) 42%, transparent);
+  color: var(--color-paper);
+  border-color: color-mix(in srgb, var(--color-paper) 38%, transparent);
 }
 
 .btn-ghost:hover {
-  background: color-mix(in srgb, var(--color-amber) 12%, transparent);
+  background: color-mix(in srgb, var(--color-paper) 10%, transparent);
   transform: translateY(-1px);
 }
 
