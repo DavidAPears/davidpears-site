@@ -93,7 +93,7 @@ export default function IndeezCaseStudy() {
                 </p>
               </div>
 
-              <p className="mono mt-6 mb-0 !text-amber">{indeez.status}</p>
+              <p className="mono mt-6 mb-0 !text-paper">{indeez.status}</p>
             </div>
           </div>
         </section>

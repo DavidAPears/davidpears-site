@@ -17,7 +17,8 @@
   --color-signal: #39ff14;
   --color-signal-soft: #74ff5b;
   --color-aqua: #2aefe0;
-  /* Amber means one thing: a deliberate gap, not an oversight. Never a CTA. */
+  /* Amber is the exception state: an unfilled slot, a failed API call, a
+     capped player. Never a CTA, and never a plain fact. */
   --color-amber: #f0b429;
   /* Secondary actions. Near enough to green's opposite to hold its own, and
      blue-violet rather than magenta so it never reads as NaviSavi pink.
