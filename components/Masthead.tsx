@@ -36,7 +36,7 @@ export default function Masthead() {
             {item.label}
           </Link>
         ))}
-        <Link href="/#cv" className="mono !text-paper no-underline">
+        <Link href="/#cv" className="mono !text-violet no-underline">
           CV ↓
         </Link>
       </nav>

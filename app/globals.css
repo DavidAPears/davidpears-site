@@ -19,6 +19,10 @@
   --color-aqua: #2aefe0;
   /* Amber means one thing: a deliberate gap, not an oversight. Never a CTA. */
   --color-amber: #f0b429;
+  /* Secondary actions. Near enough to green's opposite to hold its own, and
+     blue-violet rather than magenta so it never reads as NaviSavi pink.
+     Lightened from #7c5cff, which was 4.42:1 on the ground and failed AA. */
+  --color-violet: #8b5cff;
 
   --font-display: var(--font-archivo), "Helvetica Neue", Arial, sans-serif;
   --font-body: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
@@ -139,12 +143,12 @@ body {
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-paper);
-  border-color: color-mix(in srgb, var(--color-paper) 38%, transparent);
+  color: var(--color-violet);
+  border-color: color-mix(in srgb, var(--color-violet) 45%, transparent);
 }
 
 .btn-ghost:hover {
-  background: color-mix(in srgb, var(--color-paper) 10%, transparent);
+  background: color-mix(in srgb, var(--color-violet) 14%, transparent);
   transform: translateY(-1px);
 }
 
