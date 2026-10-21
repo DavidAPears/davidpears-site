@@ -348,29 +348,10 @@ export type WorkCard = {
 
 export const work: WorkCard[] = [
   {
-    slug: "navisavi",
-    name: "NaviSavi",
-    kind: "Platform and ecosystem",
-    role: "Co-founder & CTO",
-    period: "2020 to present",
-    summary:
-      "Video infrastructure for the travel industry. One ecosystem built on a library of 250k+ UGC traveller videos: consumer discovery, a licensing marketplace for business, a B2C travel OTA, a commercial API, and the mobile apps.",
-    points: [
-      "Every front end over a shared platform API, on web and in React Native",
-      "Clustered map discovery with deck.gl, Stripe licensing, checkout and booking",
-      "250k+ videos across 190+ countries, two Startup of the Year wins",
-      "Leading a distributed engineering team from inside the codebase",
-    ],
-    stack: ["React Native", "Next.js", "TypeScript", "deck.gl", "Stripe", "AWS"],
-    image: "/images/work/navisavi-hero-poster-16x9.webp",
-    imageAlt:
-      "NaviSavi across a laptop and two phones: the licensing library search, the consumer app, and travel playlists.",
-  },
-  {
     slug: "rost",
     name: "RÖST",
     kind: "Full-stack build",
-    role: "Solo, idea to delivery",
+    role: "Solo project, ideation through design to delivery",
     period: "2026 to present",
     summary:
       "Social built on the voice instead of the photograph. An open audio feed, dating where you hear somebody before you ever see them, and a creator layer where a voice can earn. People are more than pictures, made structurally true rather than merely said.",
@@ -391,6 +372,25 @@ export const work: WorkCard[] = [
     image: "/images/work/rost-hero-poster.webp",
     imageAlt:
       "RÖST on three phones: the Discover feed of voice posts, a profile, and the voice note recorder.",
+  },
+  {
+    slug: "navisavi",
+    name: "NaviSavi",
+    kind: "Platform and ecosystem",
+    role: "Co-founder & CTO",
+    period: "2020 to present",
+    summary:
+      "Video infrastructure for the travel industry. One ecosystem built on a library of 250k+ UGC traveller videos: consumer discovery, a licensing marketplace for business, a B2C travel OTA, a commercial API, and the mobile apps.",
+    points: [
+      "Every front end over a shared platform API, on web and in React Native",
+      "Clustered map discovery with deck.gl, Stripe licensing, checkout and booking",
+      "250k+ videos across 190+ countries, two Startup of the Year wins",
+      "Leading a distributed engineering team from inside the codebase",
+    ],
+    stack: ["React Native", "Next.js", "TypeScript", "deck.gl", "Stripe", "AWS"],
+    image: "/images/work/navisavi-hero-poster-16x9.webp",
+    imageAlt:
+      "NaviSavi across a laptop and two phones: the licensing library search, the consumer app, and travel playlists.",
   },
   {
     slug: "indeez",
