@@ -9,7 +9,7 @@ import { rost } from "@/content/site";
 export const metadata: Metadata = {
   title: "RÖST case study",
   description:
-    "A voice-first social platform built solo, end to end. The product promise is that nobody sees a face before a mutual reveal, and the architecture is what makes that true rather than a setting.",
+    "Social built on the voice instead of the photograph. An open audio feed, dating where you hear somebody before you see them, and a creator layer where a voice can earn. Designed, architected and built solo.",
   alternates: { canonical: "/work/rost" },
 };
 
@@ -39,13 +39,9 @@ function Emphasised({ text }: { text: string }) {
 }
 
 /**
- * The solo exhibit.
- *
- * Structured around what the product had to do and what that forced, because
- * the reader is someone deciding whether to hire him. Counts of policies and
- * coverage figures were in an earlier draft and are deliberately gone: they
- * describe volume, and the question a reader is actually asking is how he
- * thinks.
+ * The solo exhibit. The product first, then the engineering: the reader is
+ * deciding whether to hire him, and they cannot judge the work until they
+ * understand what the work is for.
  */
 export default function RostCaseStudy() {
   return (
@@ -59,7 +55,10 @@ export default function RostCaseStudy() {
           <div className="grid grid-cols-1 items-start gap-[clamp(2.5rem,5vw,5rem)] lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
             <div>
               {rost.intro.map((para) => (
-                <p key={para} className="m-0 mb-[1.15rem] max-w-[58ch] text-body">
+                <p
+                  key={para}
+                  className="m-0 mb-[1.15rem] max-w-[58ch] text-[clamp(1rem,1.2vw,1.0625rem)] text-body"
+                >
                   <Emphasised text={para} />
                 </p>
               ))}
@@ -78,20 +77,15 @@ export default function RostCaseStudy() {
         </section>
 
         <section className="band gutter">
-          <BandHead title="What the product had to do" meta="And what it forced" />
+          <BandHead title="Three modes, one account" meta="The product" />
 
-          <div className="grid grid-cols-1 gap-px bg-graticule lg:grid-cols-2">
-            {rost.mechanisms.map((item) => (
-              <div
-                key={item.title}
-                className="flex flex-col gap-3 bg-ground p-[clamp(1.25rem,2.4vw,2rem)]"
-              >
-                <h3 className="display-sm m-0 max-w-[34ch] text-paper">{item.title}</h3>
-                <p className="m-0 max-w-[56ch] text-[0.938rem] text-muted italic">
-                  {item.problem}
-                </p>
-                <p className="m-0 max-w-[56ch] text-[0.938rem] text-body">
-                  {item.answer}
+          <div className="grid grid-cols-1 gap-px bg-graticule md:grid-cols-3">
+            {rost.modes.map((mode) => (
+              <div key={mode.name} className="bg-ground p-[clamp(1.25rem,2.4vw,2rem)]">
+                <span className="display-lg block text-paper">{mode.name}</span>
+                <span className="mono mt-1 block !text-signal-soft">{mode.line}</span>
+                <p className="m-0 mt-4 max-w-[38ch] text-[0.938rem] text-body">
+                  {mode.detail}
                 </p>
               </div>
             ))}
@@ -99,32 +93,23 @@ export default function RostCaseStudy() {
         </section>
 
         <section className="band gutter">
-          <BandHead title={rost.verification.title} meta="How it is checked" />
-          <div className="flex max-w-[64ch] flex-col gap-4">
-            {rost.verification.body.map((para) => (
-              <p key={para} className="m-0 text-body">
-                {para}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        <section className="band gutter">
-          <BandHead
-            title="Two failures, and the rules they produced"
-            meta="Found by reading"
-          />
+          <BandHead title="The interesting problems" meta="Engineering" />
 
           <div className="grid grid-cols-1 gap-px bg-graticule lg:grid-cols-2">
-            {rost.failures.map((item) => (
+            {rost.challenges.map((item) => (
               <div key={item.title} className="bg-ground p-[clamp(1.25rem,2.4vw,2rem)]">
-                <h3 className="display-sm m-0 max-w-[34ch] text-paper">{item.title}</h3>
+                <h3 className="display-sm m-0 max-w-[30ch] text-paper">{item.title}</h3>
                 <p className="m-0 mt-3 max-w-[56ch] text-[0.938rem] text-body">
                   {item.body}
                 </p>
               </div>
             ))}
           </div>
+        </section>
+
+        <section className="band gutter">
+          <BandHead title={rost.method.title} meta="Worth a mention" />
+          <p className="m-0 max-w-[64ch] text-body">{rost.method.body}</p>
         </section>
 
         <section className="band gutter">

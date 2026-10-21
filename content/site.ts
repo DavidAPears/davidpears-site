@@ -373,12 +373,12 @@ export const work: WorkCard[] = [
     role: "Solo, idea to delivery",
     period: "2026 to present",
     summary:
-      "A voice-first social platform where the unit is a recording of somebody talking rather than a picture of them. An open audio feed, dating where nobody sees a face until both people agree, and a place where a voice can earn.",
+      "Social built on the voice instead of the photograph. An open audio feed, dating where you hear somebody before you ever see them, and a creator layer where a voice can earn. People are more than pictures, made structurally true rather than merely said.",
     points: [
-      "No photograph is ever sent before a mutual reveal: the card draws a blurhash, not a blurred image",
-      "What makes a blurred face read as a person is lighting, applied before encoding, not resolution",
-      "Realtime payloads carry ids and nothing else, so a mistake in channel policy leaks nothing",
-      "A zero-cost ceiling treated as a design input, with a model of which resource binds first",
+      "Three modes on one account: an audio feed, voice-first dating, and a creator layer",
+      "On Connect no photograph is ever sent until both people agree, so there is nothing to un-blur",
+      "The recording screen is a live Skia ribbon driven by the microphone, so the artwork is the voice",
+      "Designed, architected and built solo, from the idea to the store listing",
     ],
     stack: [
       "React Native",
@@ -415,109 +415,81 @@ export const work: WorkCard[] = [
 /**
  * The RÖST case study.
  *
- * Deliberately not a stats page. An earlier draft led with counts of policies,
- * assertions and coverage, which is inventory rather than judgement: a reader
- * who might hire him already knows a coverage figure is cheap to produce.
- *
- * What it leads with instead is mechanism. Each entry below is a thing the
- * product had to do, the obvious implementation, and why that was wrong.
+ * Leads with the product: what it is and why anybody would want it. The
+ * technical challenges come after, and are chosen because they are interesting
+ * rather than because they were difficult. Earlier drafts led with counts, then
+ * with a problem-and-fix ledger including two bugs. Both read as a defect log
+ * to the only reader who matters here, which is somebody deciding whether to
+ * hire him.
  */
 export const rost = {
   name: "RÖST",
   period: "Case study · 2026 to present",
   status: "Feature complete on Discover and Connect. Closed Android beta next.",
   intro: [
-    "RÖST is a voice-first social platform: social media where the unit is a recording of somebody talking rather than a picture of them. Three modes sit on one account. **Discover** is an open audio feed. **Connect** is dating where nobody sees a face until both people agree to it. **Create** is where a voice can eventually earn, through commissions, subscriptions and communities.",
-    "The brand line is *people are more than pictures*, and the engineering is the argument for it. A product can promise that and implement it as a setting. Here it is a property of how the data moves: on Connect, no photograph of a person reaches another person's device until two people have both said yes, because there is no code path that sends one earlier.",
-    "Design, architecture, build and delivery, solo. Built under a hard zero-cost constraint, which turned out to be a design input rather than a limitation.",
+    "Every social product of the last fifteen years has been built on the photograph. You decide who somebody is from a square image, in about a fifth of a second, and everything downstream follows from that: the filters, the editing, the performance of a life rather than the having of one.",
+    "RÖST starts from the voice instead. A post is somebody talking. You hear how they think, what they find funny, where they are from, how long they take to get to the point. **People are more than pictures** is the line, and the whole product is an attempt to make that structurally true rather than merely said.",
+    "Three modes on one account. **Discover** is an open audio feed. **Connect** is dating where nobody sees a face until both people agree to it. **Create** is where a voice can earn, through commissions, subscriptions and communities. Designed, architected and built solo, from the idea to the store listing. Launching in London for 18 to 25 year olds.",
   ],
-  /** Each one is a product requirement and the architecture it forced. */
-  mechanisms: [
+  modes: [
     {
-      title: "Nobody sees a face until both agree",
-      problem:
-        "The obvious implementation is to send the photograph and blur it on the device.",
-      answer:
-        "That is a visual effect, not a privacy control. The real pixels have arrived, a blur radius is a number in a stylesheet, and anybody who wants the picture reads it off the wire. So no photograph is sent. What travels is a blurhash, around thirty characters of averaged colour, from which nothing is recoverable because nothing was ever encoded. The photographs sit in a private bucket behind a storage policy that checks reveal grants. The way to guarantee a face is not leaked is for it never to be sent, not for the client to behave.",
+      name: "Discover",
+      line: "An open audio feed",
+      detail:
+        "Social media where the unit is a recording of somebody talking rather than a picture of them. Follow, search, listen, reply in voice.",
     },
     {
-      title: "Making a blurhash read as a person",
-      problem:
-        "A blurhash of a face at phone size reads as a coloured smudge. The card's whole job is to say there is a person here, and it was saying there is a gradient here.",
-      answer:
-        "Raising the detail is the obvious dial, and it is also the privacy dial: far enough to help is far enough to be a reveal. Drawing it as hard pixel blocks is the universal language for a withheld face, and on screen it looked like an image that had failed to load. What actually makes a blurred face read as a person is neither resolution nor rendering. It is lighting. A portrait lit against a dark ground survives being crushed to twenty frequencies; a flat snapshot in a bright room does not, and no rendering trick puts the person back. The lighting is applied before encoding, so the hash carries it and the phone draws an ordinary blurhash with no image processing at all.",
+      name: "Connect",
+      line: "Dating, heard first",
+      detail:
+        "You hear people before you see them. Each card plays one answer that person chose to record, and liking is held back until at least one has been played.",
     },
     {
-      title: "A threshold that cannot drift",
-      problem:
-        "A reveal unlocks when each person has sent three qualifying voice messages. The natural implementation is a counter.",
-      answer:
-        "A stored counter is a number that can drift, and drift here means exposing a photograph that should not have been exposed. So it is computed from the messages themselves every time it is asked for, and computed twice: once when a reveal is requested, again at the moment it is accepted, because messages can be deleted in between and the threshold has to hold when access is actually granted rather than when it was asked for. Accepting opens both galleries at once or neither. There is no state in which one person is seen and the other is not.",
-    },
-    {
-      title: "Two identities on one login, never joined",
-      problem:
-        "Somebody can hold a public creator identity and a private dating identity. After a mutual reveal, why not show the full public profile?",
-      answer:
-        "Because a reveal is consent to show a photograph. It is not consent to join two identities. Someone doing voiceover work publicly under their real name, who is on Connect under another, agreed to show their face, not to hand a stranger their professional identity. Linking the two is a switch they can turn on themselves, off by default. The separation lives in the queries rather than in a rule somebody has to remember, because a query joining the wrong table would undo all of it and look completely fine on screen.",
-    },
-    {
-      title: "Realtime that leaks nothing if it breaks",
-      problem:
-        "Streaming row changes is the default, and it authorises a table rather than the thing that needs authorising.",
-      answer:
-        "Messages arrive over a broadcast channel whose topic is the conversation itself, which is the unit that actually needs a permission check, fired by a database trigger. The payload carries ids and nothing else: no message body, no audio key. The client is told something changed and then asks properly, through the same authorisation as every other read. Nothing sensitive travels over a channel, so a mistake in channel policy leaks nothing.",
-    },
-    {
-      title: "Deleting a row does not delete the file",
-      problem:
-        "A cascade that removes a photograph's row leaves a private image in a bucket: invisible to everybody, still costing money, still existing.",
-      answer:
-        "The database cannot reach object storage, so every delete path writes to a purge queue before the row goes. An operation killed halfway through leaves work to do rather than orphans. Account deletion, retention sweeps, removing a photo from a gallery and reclaiming audio from a post deleted while a report was open all run through the same queue, so there is one answer to what happens to a file rather than four.",
-    },
-    {
-      title: "Age assurance that fails closed",
-      problem:
-        "A date of birth checkbox is not age assurance, and neither is a client reporting that it passed a check.",
-      answer:
-        "Platform signals are tried first and stronger methods only where the data says they are needed. The part that matters is the boundary: a server function verifies the platform attestation before a pass is ever written, so a client cannot record its own result however strong a tier it claims, and anything self-declared is refused regardless. Every check stores the strength of its evidence, so a week after launch the data says what fraction of real users arrive with a strong signal, and therefore whether the expensive layers are worth building. Building them first would be guessing with money.",
-    },
-    {
-      title: "A zero-cost ceiling as a design input",
-      problem:
-        "Running free through development is usually a constraint you work around until it bites.",
-      answer:
-        "Instead it was modelled up front: which resource binds first, and at what number. The answer is file storage in every realistic scenario. That decided real things rather than being a note in a document: speech-rate mono audio, duration caps per context, no autoplay, no speculative prefetch, signed URLs cached on the client with a refresh margin rather than minted per render, and retention that exempts saved messages. The bitrate is configuration rather than a constant, because halving it doubles every ceiling, and that is a decision to make by listening on a device rather than by arguing about it.",
+      name: "Create",
+      line: "A voice that earns",
+      detail:
+        "Commissions, subscriptions and communities, so the people worth listening to have a reason to keep talking.",
     },
   ],
-  /** The method, not the metric. */
-  verification: {
+  /** Chosen for interest, not for difficulty. */
+  challenges: [
+    {
+      title: "A face that is never sent",
+      body: "On Connect the promise is that nobody sees you until you both agree, and almost every app that promises this sends the photograph and blurs it on the phone. That is a visual effect: the real image has already arrived, and a blur radius is a number anybody can change. Here the photograph never leaves the server. What travels instead is a blurhash, about thirty characters of averaged colour, so there is nothing on the device to un-blur. The first time a single byte of somebody's face crosses the network is after both people have said yes.",
+    },
+    {
+      title: "Making a blurred face feel human",
+      body: "Which created a far more interesting problem. Thirty characters of colour, drawn at the size of a phone screen, looks like a gradient, and the card's entire job is to say there is a person here. More detail is the obvious fix and also the privacy dial, so that road is closed. Hard pixel blocks looked like a broken image. What actually works turned out to have nothing to do with the code: it is lighting. A face lit against a dark ground still reads as a face when it is crushed to twenty frequencies, because the warmth and the falloff survive. A flat snapshot in a bright room does not, and no amount of rendering puts the person back. So the light is shaped before the hash is made, and the phone draws something very simple.",
+    },
+    {
+      title: "Earning the reveal",
+      body: "A photograph unlocks when both people have actually talked: three voice messages each, of real length, not three from one person and silence from the other. Nothing counts a running total, because a total is a number that can be wrong, and being wrong here means showing somebody's face when it should not have been shown. It is worked out from the conversation itself, every time, and worked out again at the moment the reveal is accepted rather than when it was asked for. Both galleries open together or neither does. Saying not yet is drawn as an ordinary choice, and both people can carry on talking.",
+    },
+    {
+      title: "One account, two lives",
+      body: "Somebody can be a public voice under their own name and a private person on Connect, on one login, with nothing joining the two. The hardest product conversation was the reasonable-sounding suggestion that a mutual reveal should show the full public profile. It should not: agreeing to show your face is not agreeing to hand a stranger your professional identity. Someone who does voiceover work publicly, and dates privately, gets to decide that separately. Linking the two is a switch, off by default, theirs to turn on.",
+    },
+    {
+      title: "The artwork is the voice",
+      body: "While somebody records, the screen behind them is a live ribbon of particles drawn with Skia, driven entirely by the microphone's own metering. It is not a decorative animation reacting vaguely to sound: the shape on screen is the shape of that person speaking. The same idea carries into the feed, where the waveform on a card is the real envelope of the recording rather than a stock squiggle, captured live while they talked.",
+    },
+    {
+      title: "Trust that holds up",
+      body: "A dating product for 18 to 25 year olds has to actually know its users are adults, and a date of birth box knows nothing. Platform signals are checked first and verified on the server before anything is recorded, so a device cannot simply assert that it passed. Stronger checks are reserved for the cases the data says need them, which is a decision the product can make with evidence a week after launch rather than by spending money up front on a guess.",
+    },
+  ],
+  /** Kept because it is genuinely unusual, and stated as a method. */
+  method: {
     title: "The tests run inside the deploy",
-    body: [
-      "A quarter of the migrations are verification migrations. They create users, act as those users, call the real functions and abort the deploy if the answer is wrong. They run against the real database, in the same transaction as the schema they are checking, so a schema that does not enforce what it claims cannot ship.",
-      "That exists because the interesting questions are not unit-testable. Whether a third person can reach a conversation through SQL, REST, RPC, realtime or storage is a question about the database, not about a function. Whether six messages from one sender unlock a reveal is a question about the data, not the component.",
-      "Writing them found two existing tests that were passing for the wrong reason: they read a table as a role the security policy hides it from, counted zero, and agreed with themselves. They would have gone on passing after the protection was removed, which is the worst kind of test to own.",
-    ],
+    body: "A quarter of the database migrations are verification migrations: they create real users, act as those users, call the real functions and refuse to deploy if an answer is wrong. They run against the real database, in the same transaction as the schema they are checking. It is a deliberate choice, because the questions worth asking are not unit-testable ones. Whether a stranger can reach a private conversation through any route at all is a question about the database, not about a function, and the only honest way to ask it is to try.",
   },
-  /** Both found by reading rather than by a user hitting them. */
-  failures: [
-    {
-      title: "Policies written to grant access that could never grant anything",
-      body: "Two storage policies decided access by querying an application table, and ran that query as the caller. The table is protected by row-level security, so the caller could not see the row that would have said yes: the subquery returned nothing and the policy returned false. They were written to allow access and allowed none. The fix put the authorisation in one place that can see the row and answer honestly, rather than inlined into a policy where it quietly inverts.",
-    },
-    {
-      title: "A function deployed against a table that does not exist",
-      body: "A migration rewrote the swipe function so a match could adopt a conversation two people had already started. The logic was right, the table name was not. Postgres does not resolve a table name inside a function body until the function runs, so it deployed perfectly cleanly and then raised on every single call. Both buttons on the dating deck were dead, and the migration's own verification never called the function it had just replaced. The fix was one line. The rule it produced was that a migration redefining a function has to call it, and the replacement's checks now run a pass, a one-sided like, a retry, a mutual like, swiping on yourself, and the conversation adoption the change existed for.",
-    },
-  ],
   stack: [
     { label: "React Native", tone: "hot" },
     { label: "Expo SDK 57", tone: "hot" },
     { label: "TypeScript" },
     { label: "Supabase" },
     { label: "PostgreSQL + RLS", tone: "cool" },
-    { label: "SECURITY DEFINER RPCs", tone: "cool" },
-    { label: "Broadcast realtime" },
+    { label: "Realtime" },
     { label: "Edge Functions" },
     { label: "Skia", tone: "cool" },
     { label: "Unistyles" },
