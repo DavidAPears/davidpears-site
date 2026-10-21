@@ -388,8 +388,9 @@ export const work: WorkCard[] = [
       "PostgreSQL",
       "Skia",
     ],
-    image: null,
-    imageAlt: "RÖST, a voice-first social platform.",
+    image: "/images/work/rost-hero-poster.webp",
+    imageAlt:
+      "RÖST on three phones: the Discover feed of voice posts, a profile, and the voice note recorder.",
   },
   {
     slug: "indeez",
