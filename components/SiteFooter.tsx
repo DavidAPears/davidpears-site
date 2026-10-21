@@ -28,6 +28,13 @@ export default function SiteFooter() {
         </Link>
         <span className="mono !text-muted-dim">·</span>
         <Link
+          href="/work/rost"
+          className="mono no-underline transition-colors hover:text-signal-soft"
+        >
+          RÖST
+        </Link>
+        <span className="mono !text-muted-dim">·</span>
+        <Link
           href="/about"
           className="mono no-underline transition-colors hover:text-signal-soft"
         >

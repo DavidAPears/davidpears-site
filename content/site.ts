@@ -367,6 +367,31 @@ export const work: WorkCard[] = [
       "NaviSavi across a laptop and two phones: the licensing library search, the consumer app, and travel playlists.",
   },
   {
+    slug: "rost",
+    name: "RÖST",
+    kind: "Full-stack build",
+    role: "Solo, idea to delivery",
+    period: "2026 to present",
+    summary:
+      "A voice-first social platform where the unit is a recording of somebody talking rather than a picture of them. An open audio feed, dating where nobody sees a face until both people agree, and a place where a voice can earn.",
+    points: [
+      "No photograph reaches another device before a mutual reveal: the card draws a blurhash, never a blurred image",
+      "39 tables, 104 row-level security policies and 91 Postgres functions, written solo",
+      "306 assertions run inside the migrations, against the real database, on every deploy",
+      "100% coverage across 1,733 tests, enforced on push",
+    ],
+    stack: [
+      "React Native",
+      "Expo SDK 57",
+      "TypeScript",
+      "Supabase",
+      "PostgreSQL",
+      "Skia",
+    ],
+    image: null,
+    imageAlt: "RÖST, a voice-first social platform.",
+  },
+  {
     slug: "indeez",
     name: "Indeez",
     kind: "Mobile app",
@@ -386,6 +411,118 @@ export const work: WorkCard[] = [
       "Indeez on three phones: the discovery feed, an artist page, and a record label page.",
   },
 ];
+
+/**
+ * The RÖST case study. The richest of the three and the only solo build, so
+ * the right column carries the numbers rather than screens: there are no
+ * screenshots yet, and a table of what was actually built says more about a
+ * security-led product than a phone mockup would.
+ *
+ * Facts come from David's own source notes, 21 October 2026, all checkable
+ * against the repository. Keep the figures and the date in step.
+ */
+export const rost = {
+  name: "RÖST",
+  period: "Case study · 2026 to present",
+  status: "Feature complete on Discover and Connect. Closed Android beta next.",
+  intro: [
+    "RÖST is a voice-first social platform: social media where the unit is a recording of somebody talking rather than a picture of them. Three modes sit on one account. **Discover** is an open audio feed. **Connect** is dating where nobody sees a face until both people agree to it. **Create** is where a voice can eventually earn, through commissions, subscriptions and communities.",
+    "The brand line is *people are more than pictures*, and the engineering is the argument for it. On Connect, no photograph of a person reaches another person's device at all until two people have both said yes. That is not a setting or a client behaviour. It is the only way the data can travel.",
+    "Built solo, end to end, under a hard zero-cost constraint: free tier throughout development, and a written capacity model that says which resource binds first and at what number. Launching in London for 18 to 25 year olds.",
+  ],
+  owned: [
+    {
+      title: "Data model",
+      detail:
+        "39 tables, from identity and audio through matching, messaging, reveal grants, moderation, communities and the monetisation seams.",
+    },
+    {
+      title: "Security",
+      detail:
+        "104 row-level security policies, 91 Postgres functions, and separate Storage access policies. RLS on Postgres does not protect Storage objects, and treating it as though it does is the most common way products like this leak.",
+    },
+    {
+      title: "API surface",
+      detail:
+        "The client talks to SECURITY DEFINER RPCs rather than tables, so authorisation lives in one layer instead of being reimplemented on every screen.",
+    },
+    {
+      title: "Realtime",
+      detail:
+        "Supabase Broadcast with channel authorisation, fired by database triggers. The payload carries ids and nothing else, so a mistake in channel policy leaks nothing.",
+    },
+    {
+      title: "Mobile",
+      detail:
+        "React Native and Expo across 168 source files, a design system whose tokens are enforced by lint, and Skia for the live audio artwork.",
+    },
+    {
+      title: "Verification",
+      detail:
+        "306 assertions that run inside the migrations, against the real database, as part of deploying. A failing assertion aborts the deploy.",
+    },
+    {
+      title: "Everything around it",
+      detail:
+        "Age assurance architecture, retention and purge, capacity modelling, the policies, the brand application and the app icons.",
+    },
+  ],
+  /** Checkable against the repository, 21 October 2026. */
+  numbers: [
+    { label: "First commit", value: "12 October 2026" },
+    { label: "Migrations", value: "85, of which 25 are verification" },
+    { label: "In-database assertions", value: "306" },
+    { label: "Postgres functions", value: "91" },
+    { label: "RLS policies", value: "104" },
+    { label: "Tables", value: "39" },
+    { label: "SQL", value: "~12,800 lines" },
+    { label: "TypeScript", value: "~20,500 lines, 168 files" },
+    { label: "Tests", value: "1,733 across 130 files" },
+    { label: "Coverage", value: "100%, enforced on push" },
+  ],
+  decisions: [
+    {
+      label: "A decision worth naming",
+      title: "A blurred photograph is not a privacy control",
+      body: "The obvious build is to send the photograph and blur it on the device. That is a visual effect, not privacy: the real pixels have arrived, a blur radius is a number in a stylesheet, and anybody who wants the picture takes it off the wire. So no photograph is sent. What travels is a blurhash, around thirty characters of averaged colour from which nothing is recoverable because nothing was ever encoded. The photographs sit in a private bucket behind a Storage policy that checks reveal grants. The way to guarantee a face is not leaked is for it never to be sent.",
+    },
+    {
+      label: "A bug found by reading",
+      title: "Policies written to grant access that could never grant anything",
+      body: "Two Storage policies answered by selecting from an application table, and ran that query as the caller. The table has RLS on it, so the caller could not see the row that would have said yes, the subquery returned nothing and the policy returned false. Both were written to allow access and allowed none. Fixed with SECURITY DEFINER helpers that can see the row and answer honestly, with the authorisation in one place rather than inlined into a policy where it quietly inverts.",
+    },
+    {
+      label: "A failure that deployed cleanly",
+      title: "A function pointed at a table that does not exist",
+      body: "A migration rewrote swipe() to let a match adopt a conversation two people had already started. The logic was right, the table name was not: it wrote to public.swipes, and the decisions have lived in public.likes since the fourth migration. Postgres does not resolve a table name inside a plpgsql body until the function runs, so it deployed perfectly and then raised on every call. Both buttons on the dating deck were dead, and the migration's own verification never called the function it had just replaced. The fix was one line. The rule it produced was that a migration redefining a function has to call it.",
+    },
+    {
+      label: "What a reveal means",
+      title: "Consent to show a photograph, not to join two identities",
+      body: "Somebody can hold a public creator identity and a private dating identity on one login, never linked by default. The reasonable-sounding request was to show the full public profile after a mutual reveal. Someone doing voiceover work publicly under their real name, who is on Connect under another, agreed to show their face, not to hand a stranger their professional identity. Linking the two is a switch they can turn on themselves, off by default, and a verification migration asserts the inbox shows the Connect name, because a query joining the wrong table would undo the whole separation and look completely fine on screen.",
+    },
+  ],
+  /** The threshold story, pulled out because it is the clearest statement of the method. */
+  computed: {
+    title: "Computed, never stored",
+    body: "A photo reveal unlocks when each participant has sent three qualifying audio messages. Six from one person unlocks nothing. A stored counter would be a number that can drift, and drift here means exposing a photograph that should not have been exposed, so it is computed from the messages table every time it is asked for, and recomputed twice: once when a reveal is requested and again at the moment it is accepted, because messages can be deleted in between. Accepting opens both galleries at once or neither.",
+  },
+  stack: [
+    { label: "React Native", tone: "hot" },
+    { label: "Expo SDK 57", tone: "hot" },
+    { label: "TypeScript" },
+    { label: "Supabase" },
+    { label: "PostgreSQL + RLS", tone: "cool" },
+    { label: "SECURITY DEFINER RPCs", tone: "cool" },
+    { label: "Supabase Broadcast" },
+    { label: "Edge Functions" },
+    { label: "Skia", tone: "cool" },
+    { label: "Unistyles" },
+    { label: "Jest" },
+    { label: "EAS" },
+  ] as StackChip[],
+  team: "Solo: design, architecture, build and delivery.",
+};
 
 /**
  * The Indeez case study. Deliberately a skeleton: the headings are the same as
