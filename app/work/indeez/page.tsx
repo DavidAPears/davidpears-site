@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import AppScreens from "@/components/AppScreens";
+import CaseStudyNav from "@/components/CaseStudyNav";
 import Masthead from "@/components/Masthead";
 import SiteFooter from "@/components/SiteFooter";
 import { BandHead, Chip } from "@/components/ui";
@@ -109,11 +109,7 @@ export default function IndeezCaseStudy() {
         </section>
         */}
 
-        <section className="band gutter">
-          <Link href="/#work" className="btn btn-ghost">
-            Back to the work
-          </Link>
-        </section>
+        <CaseStudyNav slug="indeez" />
       </main>
 
       <SiteFooter />

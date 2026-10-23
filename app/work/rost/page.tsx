@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
+import CaseStudyNav from "@/components/CaseStudyNav";
 import Masthead from "@/components/Masthead";
 import RostScreens from "@/components/RostScreens";
 import SiteFooter from "@/components/SiteFooter";
@@ -118,11 +118,7 @@ export default function RostCaseStudy() {
           <p className="m-0 max-w-[64ch] text-body">{rost.method.body}</p>
         </section>
 
-        <section className="band gutter">
-          <Link href="/#work" className="btn btn-ghost">
-            Back to the work
-          </Link>
-        </section>
+        <CaseStudyNav slug="rost" />
       </main>
 
       <SiteFooter />

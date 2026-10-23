@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
 import CaseStudy from "@/components/CaseStudy";
 import Craft from "@/components/Craft";
+import CaseStudyNav from "@/components/CaseStudyNav";
 import Masthead from "@/components/Masthead";
 import SiteFooter from "@/components/SiteFooter";
 
@@ -26,11 +26,7 @@ export default function NaviSaviCaseStudy() {
         <CaseStudy />
         <Craft />
 
-        <section className="band gutter">
-          <Link href="/#work" className="btn btn-ghost">
-            Back to the work
-          </Link>
-        </section>
+        <CaseStudyNav slug="navisavi" />
       </main>
 
       <SiteFooter />
