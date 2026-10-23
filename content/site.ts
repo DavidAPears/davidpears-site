@@ -397,6 +397,7 @@ export const work: WorkCard[] = [
     live: [
       { href: "https://navi-savi.com/", label: "navi-savi.com" },
       { href: "https://www.navisavitravel.com/", label: "navisavitravel.com" },
+      { href: "https://www.navisavitravel.com/moats", label: "MOATS" },
     ],
   },
   {
