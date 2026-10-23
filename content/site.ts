@@ -484,6 +484,37 @@ export const rost = {
     title: "The tests run inside the deploy",
     body: "A quarter of the database migrations are verification migrations: they create real users, act as those users, call the real functions and refuse to deploy if an answer is wrong. They run against the real database, in the same transaction as the schema they are checking. It is a deliberate choice, because the questions worth asking are not unit-testable ones. Whether a stranger can reach a private conversation through any route at all is a question about the database, not about a function, and the only honest way to ask it is to try.",
   },
+  /**
+   * Four screens, chosen to carry the story rather than to tour the app:
+   * what the feed is, the blurhash that is not a blurred photograph, the
+   * ribbon drawn from the microphone, and a conversation held in voice.
+   */
+  screens: [
+    {
+      src: "/images/work/rost/discover.webp",
+      caption: "The feed",
+      note: "Real waveforms, captured while somebody talks",
+      alt: "The RÖST Discover feed: voice posts from three people, each with a waveform and a play button.",
+    },
+    {
+      src: "/images/work/rost/connect.webp",
+      caption: "A Connect card",
+      note: "A blurhash, not a blurred photograph",
+      alt: "A RÖST Connect card: a name, age and neighbourhood over soft colour, with a recorded answer to play and no photograph.",
+    },
+    {
+      src: "/images/work/rost/recording.webp",
+      caption: "Recording",
+      note: "The ribbon is the microphone, drawn with Skia",
+      alt: "The RÖST recording screen: a particle ribbon driven by live audio, above a timer reading 27 seconds.",
+    },
+    {
+      src: "/images/work/rost/conversation.webp",
+      caption: "In conversation",
+      note: "Voice notes both ways, newest at the bottom",
+      alt: "A RÖST conversation: voice notes from both people, each with its own waveform.",
+    },
+  ],
   stack: [
     { label: "React Native", tone: "hot" },
     { label: "Expo SDK 57", tone: "hot" },

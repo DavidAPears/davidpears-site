@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import Masthead from "@/components/Masthead";
+import RostScreens from "@/components/RostScreens";
 import SiteFooter from "@/components/SiteFooter";
 import { BandHead, Chip } from "@/components/ui";
 import { rost } from "@/content/site";
@@ -74,6 +75,11 @@ export default function RostCaseStudy() {
               <p className="mono mt-6 mb-0 !text-paper">{rost.status}</p>
             </div>
           </div>
+        </section>
+
+        <section className="band gutter">
+          <BandHead title="The app" meta="Discover and Connect" />
+          <RostScreens />
         </section>
 
         <section className="band gutter">
