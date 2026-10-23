@@ -46,7 +46,7 @@ export default function About() {
 
                 <p className="m-0">
                   Since 2020 I have been co-founder and CTO at{" "}
-                  <a href="https://navisavitravel.com" className="text-aqua">
+                  <a href="https://www.navisavitravel.com" className="text-aqua">
                     NaviSavi
                   </a>
                   , a travel video platform. I lead its technical development across four

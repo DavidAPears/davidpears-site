@@ -19,7 +19,7 @@ const PERSON = {
   worksFor: {
     "@type": "Organization",
     name: "NaviSavi",
-    url: "https://navisavitravel.com",
+    url: "https://www.navisavitravel.com",
   },
   address: {
     "@type": "PostalAddress",

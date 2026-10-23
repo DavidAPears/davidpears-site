@@ -36,7 +36,7 @@ export const slate = [
 export const properties = [
   {
     domain: "navisavitravel.com",
-    href: "https://navisavitravel.com/",
+    href: "https://www.navisavitravel.com/",
     shot: "/images/work/b2b-library.jpg",
     audience: "Business",
     title: "The world's leading travel video library.",
@@ -344,8 +344,8 @@ export type WorkCard = {
   stack: string[];
   image: string | null;
   imageAlt: string;
-  /** The product itself, for a reader who wants to go and look. */
-  live: { href: string; label: string };
+  /** The products themselves, for a reader who wants to go and look. */
+  live: { href: string; label: string }[];
 };
 
 export const work: WorkCard[] = [
@@ -374,7 +374,7 @@ export const work: WorkCard[] = [
     image: "/images/work/rost-hero-poster.webp",
     imageAlt:
       "RÖST on three phones: the Discover feed of voice posts, a profile, and the voice note recorder.",
-    live: { href: "https://rost.fyi/", label: "rost.fyi" },
+    live: [{ href: "https://rost.fyi/", label: "rost.fyi" }],
   },
   {
     slug: "navisavi",
@@ -394,7 +394,10 @@ export const work: WorkCard[] = [
     image: "/images/work/navisavi-hero-poster-16x9.webp",
     imageAlt:
       "NaviSavi across a laptop and two phones: the licensing library search, the consumer app, and travel playlists.",
-    live: { href: "https://navi-savi.com/", label: "navi-savi.com" },
+    live: [
+      { href: "https://navi-savi.com/", label: "navi-savi.com" },
+      { href: "https://www.navisavitravel.com/", label: "navisavitravel.com" },
+    ],
   },
   {
     slug: "indeez",
@@ -414,7 +417,7 @@ export const work: WorkCard[] = [
     image: "/images/indeez/indeez-hero-poster.webp",
     imageAlt:
       "Indeez on three phones: the discovery feed, an artist page, and a record label page.",
-    live: { href: "https://indeez.world/", label: "indeez.world" },
+    live: [{ href: "https://indeez.world/", label: "indeez.world" }],
   },
 ];
 
